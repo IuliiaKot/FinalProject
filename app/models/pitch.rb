@@ -1,0 +1,2 @@
+class Pitch < ApplicationRecord
+end
