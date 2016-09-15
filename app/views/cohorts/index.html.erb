@@ -1,0 +1,7 @@
+<div class="container">
+  <ul>
+    <% @cohorts.each do |cohort| %>
+      <li><a href="/cohorts/<%= cohort.id%>"><%= cohort.name %></a></li>
+    <% end %>
+  </ul>
+</div>
