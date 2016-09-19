@@ -1,5 +1,10 @@
 <div class="container">
   <section>
     <h3><%= @cohort.name %></h3>
+      <ul>
+        <% @cohort.students.each do |student| %>
+          <li><%= student.full_name%></li>
+        <% end %>
+      </ul>
   </section>
 </div>
