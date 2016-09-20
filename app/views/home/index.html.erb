@@ -4,7 +4,7 @@
       <div class='col-md-4'><div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title" aria-label="title"><%= pitch.title %></h3>
-          <input type="checkbox">
+          <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote">
         </div>
         <div class="panel-body">
           <p><%= pitch.description %></p>
