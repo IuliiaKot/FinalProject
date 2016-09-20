@@ -3,7 +3,7 @@ class CreatePitches < ActiveRecord::Migration[5.0]
     create_table :pitches do |t|
       t.string :title, null: false
       t.text :description, null: false
-      t.references :student, oreign_key: true
+      t.integer :student_id, foreign_key: true
 
       t.timestamps
     end

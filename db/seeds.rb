@@ -8,6 +8,7 @@
 
 
 Cohort.delete_all
+Student.delete_all
 
 Cohort.create!(name: 'NYC-Golden-Bears-2016')
 Cohort.create!(name: 'NYC-Red-Pandas-2016')
@@ -15,5 +16,6 @@ Cohort.create!(name: 'NYC-Red-Pandas-2016')
 students= ['Amir Tawfik', 'Anthony Narisi','David Lin','Elizabeth Lefever','Emilia Friedberg','Gabriel Mahan', 'Marcoa Martinez', 'Myra Orgain', 'Neill Perry', 'Peter Duke','Wolfgang Criollo','Walter Chabla','Yossi Ruben','Nicholas Wang']
 
 students.each do |student|
-  Cohort.last.students.create(first_name: student.split(' ').first, last_name: student.split(' ').last)
+  email = student.split(' ').first.downcase.concat('@gmail.com')
+  Cohort.last.students.create!(email: email, password: "123456", first_name: student.split(' ').first, last_name: student.split(' ').last)
 end
