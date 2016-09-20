@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :cohorts
 
   resources :pitches
+
+  resources :users, only: [:new, :create]
+  resources :students, only: [:new, :create]
 end
