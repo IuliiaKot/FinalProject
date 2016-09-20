@@ -2,7 +2,7 @@ class PitchesController < ApplicationController
   include StudentsHelper
 
   def index
-
+    @pitches = Pitch.all
   end
 
   def new
@@ -12,7 +12,10 @@ class PitchesController < ApplicationController
   def create
     @pitch = current_user.pitches.new(pithc_params)
     if @pitch.save
+      redirect_to '/'
     else
+      @errors = @pitch.errors.full_messages
+      render 'new'
     end
   end
 
