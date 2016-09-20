@@ -1,26 +1,43 @@
 class PitchesController < ApplicationController
   include StudentsHelper
+  before_action :find_pitch, only: [:destroy, :edit]
 
   def index
-    @pitches = Pitch.all
+    @pitches = current_user.pitches
   end
 
   def new
-
+    @pitch = Pitch.new
   end
 
   def create
-    @pitch = current_user.pitches.new(pithc_params)
+    @pitch = current_user.pitches.new(pitch_params)
     if @pitch.save
-      redirect_to '/'
+      redirect_to pitches_path
     else
       @errors = @pitch.errors.full_messages
       render 'new'
     end
   end
 
+  def edit
+  end
+
+  def update
+
+  end
+
+  def destroy
+    @pitch.delete
+    redirect_to pitches_path
+  end
+
   private
+    def find_pitch
+      @pitch = Pitch.find_by(id: params[:id])
+    end
+
     def pitch_params
-      params.require(:pitch).permit(:working_title, :description, :student_id)
+      params.require(:pitch).permit(:title, :description)
     end
 end

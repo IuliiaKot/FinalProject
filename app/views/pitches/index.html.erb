@@ -1,0 +1,13 @@
+<div class="container">
+  <ul>
+    <% @pitches.each do |pitch| %>
+      <li><%= pitch.title %></li>
+      <p><%= pitch.description %></p>
+      <%= link_to 'Edit', edit_pitch_path(pitch)%>
+      <%= link_to 'Delete', pitch_path(pitch), method: 'delete'%>
+    <% end %>
+  </ul>
+  <% if @pitches.count < 4 %>
+    <%= link_to "Add", new_pitch_path%>
+  <% end %>
+</div>
