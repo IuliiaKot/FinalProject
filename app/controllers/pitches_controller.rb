@@ -1,6 +1,5 @@
 class PitchesController < ApplicationController
-  include StudentsHelper
-  before_action :find_pitch, only: [:destroy, :edit]
+  before_action :find_pitch, only: [:destroy, :edit, :update]
 
   def index
     @pitches = current_user.pitches
@@ -24,7 +23,11 @@ class PitchesController < ApplicationController
   end
 
   def update
-
+    if @pitch.update(pitch_params)
+      redirect_to pitches_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy

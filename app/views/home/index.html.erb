@@ -1,19 +1,15 @@
 <div class="container">
+  <div class="row">
     <% @pitches.each do |pitch| %>
-      <div class="panel panel-default">
+      <div class='col-md-4'><div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title" aria-label="title"><%= pitch.title %></h3>
+          <input type="checkbox">
         </div>
         <div class="panel-body">
           <p><%= pitch.description %></p>
         </div>
-      </div>
-      <%= link_to 'Edit', edit_pitch_path(pitch)%>
-      <%= link_to 'Delete', pitch_path(pitch), method: 'delete'%>
+      </div></div>
     <% end %>
-    <div class="">
-      <% if @pitches.count < 4 %>
-        <%= link_to "Add", new_pitch_path%>
-      <% end %>
-    </div>
+  </div>
 </div>
