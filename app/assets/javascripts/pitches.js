@@ -3,17 +3,20 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
-  // console.log($('#choose-idea'))
   $('.choose-idea').click('on', function(e){
-    e.preventDefault();
-    debugger
     var url = $(e.target).parent().find('input').attr('value');
     $.ajax({
       url:url,
       method: 'post'
     })
       .done(function(response){
-        debugger
+        // debugger
+        if (response.count > 3) {
+          var inputs = $('.choose-idea')
+          for(var i = 0; i < inputs.length; i++){
+              $(inputs[i]).attr('disabled', true)
+          }
+        }
       })
   })
 })

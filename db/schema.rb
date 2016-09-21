@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160920210319) do
   create_table "votes", force: :cascade do |t|
     t.integer  "pitch_id"
     t.integer  "count",      default: 0
+    t.integer  "student_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["pitch_id"], name: "index_votes_on_pitch_id"
