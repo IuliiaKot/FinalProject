@@ -19,3 +19,5 @@ students.each do |student|
   email = student.split(' ').first.downcase.concat('@gmail.com')
   Cohort.last.students.create!(email: email, password: "123456", first_name: student.split(' ').first, last_name: student.split(' ').last)
 end
+
+Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia", last_name: "Kotlenlp")

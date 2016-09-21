@@ -6,4 +6,10 @@ class Student < User
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
+
+
+  def upvoted?(pitch)
+    !(self.votes.where(pitch_id: pitch.id).count.zero?)
+  end
+
 end

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'teachers/new'
-
   get 'teachers/create'
+  get '/teachers/login' => 'teachers#login'
+  post '/teachers/' => 'teachers#create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :cohorts
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  namespace :admin do
-    resources :teachers, only: [:new, :create]
-  end
+  # namespace :admin do
+  #   resources :teachers, only: [:new, :create]
+  # end
 end

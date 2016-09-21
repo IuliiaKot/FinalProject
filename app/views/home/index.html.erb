@@ -4,7 +4,16 @@
       <div class='col-md-4'><div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title" aria-label="title"><%= pitch.title %></h3>
-          <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote" >
+          <% if current_user.type == 'Student' %>
+            <% if current_user.upvoted?(pitch) %>
+              <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote" checked="true">
+            <% else %>
+              <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote">
+            <% end %>
+          <% end %>
+          <% if current_user.type == 'Teacher' %>
+            <span class="choose-idea"><%= pitch.votes.count%></span>
+          <% end %>
         </div>
         <div class="panel-body">
           <p><%= pitch.description %></p>

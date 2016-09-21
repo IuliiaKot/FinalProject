@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @pitches = current_user.cohort.pitches
+    if current_user.type == 'Student'
+      @pitches = current_user.cohort.pitches
+    else
+      @pitches = Pitch.all
+    end
   end
 end

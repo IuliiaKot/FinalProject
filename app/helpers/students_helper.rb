@@ -1,7 +1,12 @@
 module StudentsHelper
 
   def current_user
-    @current_user ||= Student.find_by(id: session[:user_id])
+    student = Student.find_by(id: session[:user_id])
+    if student
+      @current_user ||= student
+    else
+      @current_user ||= Teacher.find_by(id: session[:user_id])
+    end
   end
 
   def loggin?

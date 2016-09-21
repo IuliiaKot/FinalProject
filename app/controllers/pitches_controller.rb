@@ -2,7 +2,12 @@ class PitchesController < ApplicationController
   before_action :find_pitch, only: [:destroy, :edit, :update]
 
   def index
-    @pitches = current_user.pitches
+    # debugger
+    if current_user.type == 'Student'
+      @pitches = current_user.pitches
+    else
+      @pitches = Pitch.all
+    end
   end
 
   def new
