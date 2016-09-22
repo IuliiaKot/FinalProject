@@ -1,7 +1,7 @@
 module StudentsHelper
 
   def current_user
-    debugger
+        # debugger
     student = Student.find_by(id: session[:user_id])
     if student
       @current_user ||= student
@@ -11,12 +11,11 @@ module StudentsHelper
   end
 
 
-  def user_login?
-    debugger
+  def loggin?
     !!(current_user)
   end
 
   def require_user
-    redirect_to new_student_path unless loggin?
+    redirect_to root_path unless loggin?
   end
 end

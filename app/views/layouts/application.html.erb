@@ -14,12 +14,16 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="/home">Final Project</a>
+          <ul class="nav navbar-nav">
+            <% if current_user.type == 'Student'%>
+              <li><a href="#">Round 2</a></li>
+            <% else %>
+              <li><a href="/votingresult">Voting result</a></li>
+            <% end %>
+          </ul>
         </div>
-        <ul class="nav navbar-nav">
-        </ul>
-        <!-- <% user_login? %> -->
         <ul class="nav navbar-nav navbar-right">
-          <% if user_login? %>
+          <% if loggin? %>
             <% if current_user.type == 'Student'%>
               <li><a href="/pitches">My pitches</a></li>
             <% else %>

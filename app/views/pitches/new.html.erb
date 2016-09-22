@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_for :pitch  do |f| %>
+  <%= form_for :pitch, url: '/pitches'  do |f| %>
     <div class="form-group">
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control', placaholder: 'Working Title'%>

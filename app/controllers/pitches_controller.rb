@@ -1,8 +1,8 @@
 class PitchesController < ApplicationController
+  before_action :require_user
   before_action :find_pitch, only: [:destroy, :edit, :update]
 
   def index
-    # debugger
     if current_user.type == 'Student'
       @pitches = current_user.pitches
     else
@@ -11,7 +11,6 @@ class PitchesController < ApplicationController
   end
 
   def new
-    # debugger
     @pitch = Pitch.new
   end
 
@@ -39,6 +38,10 @@ class PitchesController < ApplicationController
   def destroy
     @pitch.delete
     redirect_to pitches_path
+  end
+
+  def votingresult
+    @pitches = Cohort.last.pitches.sort_by {|pitch| -pitch.votes.count}
   end
 
   private

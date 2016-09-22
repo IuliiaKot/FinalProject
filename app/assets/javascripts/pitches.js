@@ -4,6 +4,7 @@
 
 $(document).ready(function(){
   $('.choose-idea').click('on', function(e){
+    debugger
     var url = $(e.target).parent().find('input').attr('value');
     $.ajax({
       url:url,
