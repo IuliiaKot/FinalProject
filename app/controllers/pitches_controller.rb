@@ -11,6 +11,7 @@ class PitchesController < ApplicationController
   end
 
   def new
+    # debugger
     @pitch = Pitch.new
   end
 

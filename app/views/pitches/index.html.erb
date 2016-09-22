@@ -12,8 +12,9 @@
       <%= link_to 'Delete', pitch_path(pitch), method: 'delete'%>
     <% end %>
     <div class="">
-      <% if @pitches.count < 4 %>
-        <%= link_to "Add", new_pitch_path%>
+      <% if @pitches.count < 4 && current_user.type == 'Student'%>
+
+        <a href="/pitches/new">Add</a>
       <% end %>
     </div>
 </div>

@@ -1,11 +1,12 @@
 class TeachersController < ApplicationController
-  def new
-  end
-
-  def create
-  end
+  # def new
+  # end
+  #
+  # def create
+  # end
 
   def login
+    # debugger
     @teacher = Teacher.new
   end
 
@@ -17,7 +18,7 @@ class TeachersController < ApplicationController
       redirect_to pitches_path
     else
       @errors = ['Invalid password/email']
-      render 'new'
+      render 'login'
     end
   end
 end
