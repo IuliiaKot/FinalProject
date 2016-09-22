@@ -17,8 +17,9 @@
         </div>
         <ul class="nav navbar-nav">
         </ul>
+        <!-- <% user_login? %> -->
         <ul class="nav navbar-nav navbar-right">
-          <% if loggin? %>
+          <% if user_login? %>
             <% if current_user.type == 'Student'%>
               <li><a href="/pitches">My pitches</a></li>
             <% else %>

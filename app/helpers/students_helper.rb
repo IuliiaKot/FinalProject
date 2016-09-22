@@ -1,7 +1,7 @@
 module StudentsHelper
 
   def current_user
-    # debugger
+    debugger
     student = Student.find_by(id: session[:user_id])
     if student
       @current_user ||= student
@@ -10,9 +10,10 @@ module StudentsHelper
     end
   end
 
-  def loggin?
-    # debugger
-    !!current_user
+
+  def user_login?
+    debugger
+    !!(current_user)
   end
 
   def require_user
