@@ -15,3 +15,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+$(document).ready(function(){
+  $('.rank').click('on', function(e){
+    debugger
+    var url = $(e.target).parent().find('input').attr('value');
+    $.ajax({
+      url:url,
+      method: 'post'
+    })
+      .done(function(response){
+        debugger
+      })
+  })
+})

@@ -44,6 +44,16 @@ class PitchesController < ApplicationController
     @pitches = Cohort.last.pitches.sort_by {|pitch| -pitch.votes.count}
   end
 
+  def rank
+    Pitch.find_by(id: params[:pitch_id]).update(final: true)
+    render :json => {count: Cohort.last.pitches.where(final: true).count}
+  end
+
+  def ranking
+    @pitches = Cohort.last.pitches.where(final: true)
+  end
+
+
   private
     def find_pitch
       @pitch = Pitch.find_by(id: params[:id])
