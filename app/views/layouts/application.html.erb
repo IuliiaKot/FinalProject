@@ -19,6 +19,7 @@
           <% if loggin? %>
             <ul class="nav navbar-nav">
               <% if current_user.type == 'Student'%>
+                <li><a href="/firstround">Round 1</a></li>
                 <li><a href="/ranking">Round 2</a></li>
               <% else %>
                 <li><a href="/votingresult">Voting result</a></li>

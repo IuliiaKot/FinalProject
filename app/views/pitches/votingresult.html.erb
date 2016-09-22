@@ -5,7 +5,11 @@
         <div class="panel-heading">
           <h3 class="panel-title" aria-label="title"><%= pitch.title %></h3>
             <span class="rank"><%= pitch.votes.count%></span>
-            <input type="checkbox" class="rank" value="/pitches/<%= pitch.id %>/rank">
+            <% if pitch.final %>
+              <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/rank" checked="true">
+            <% else %>
+              <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/rank">
+            <% end %>
 
         </div>
         <div class="panel-body">
