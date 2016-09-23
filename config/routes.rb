@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/votingresult' => 'pitches#votingresult'
   get '/ranking' => 'pitches#ranking'
   get '/firstround' => 'votes#firstround'
+  get '/teams' => 'ranks#teams'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :cohorts
