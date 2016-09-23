@@ -1,12 +1,13 @@
 $(document).ready(function(){
-  $('.rank').on('change', function(e){
+  $('.rank-project').on('change',function(e){
     debugger
-    var id = $('#rank option:selected').attr('value')
+    // var id = $('.rank-project option:selected').attr('value')
+    var id = $(e.target).find(':selected').attr('value')
     var url = '/pitches/' + id + '/setrank'
     $.ajax({
       method: 'post',
       url: url,
-      data: {rank: $('#rank option:selected').text()}
+      data: {rank: $(e.target).find(':selected').text()}
     })
       .done(function(respones){
       })
