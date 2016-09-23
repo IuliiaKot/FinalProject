@@ -1,17 +1,14 @@
 <div class="container">
   <div class="container">
     <div class="row">
+      <% if @errors %>
+        <p><%= @errors[:notice] %></p>
+      <% end %>
       <% @pitches.each do |pitch| %>
         <div class='col-md-4'><div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title" aria-label="title"><%= pitch.title %></h3>
-            <select>
-              <option value="volvo">1</option>
-              <option value="saab">2</option>
-              <option value="mercedes">3</option>
-              <option value="audi">4</option>
-              <option value="audi">5</option>
-            </select>
+            <%= select_tag(:rank, options_for_select(@pitches.map.with_index {|pitch, idx| [idx+1, pitch.id]}),  {:class => 'rank'}) %>
           </div>
           <div class="panel-body">
             <p><%= pitch.description %></p>

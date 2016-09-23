@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   post '/teachers' => 'teachers#create'
   get '/votingresult' => 'pitches#votingresult'
   get '/ranking' => 'pitches#ranking'
+  get '/firstround' => 'votes#firstround'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :cohorts
   resources :pitches do
+    post '/setrank' => 'ranks#setrank'
     post '/rank' => 'pitches#rank'
     post '/vote' => 'votes#upvote'
   end

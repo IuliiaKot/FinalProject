@@ -1,4 +1,10 @@
 class VotesController < ApplicationController
+  before_action :require_user
+
+  def firstround
+    @pitches = Cohort.last.pitches
+  end
+
   def upvote
     # debugger
     pitch = Pitch.find_by(id: params[:pitch_id])
