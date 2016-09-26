@@ -5,15 +5,20 @@
         <p><%= @errors[:notice] %></p>
       <% end %>
       <% @pitches.each do |pitch| %>
-        <div class='col-md-4'><div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title" aria-label="title"><%= pitch.title %></h3>
-            <%= select_tag(:ranks, options_for_select((@pitches.map.with_index {|pitch, idx| [idx+1, pitch.id]}).unshift(['',''])),  {:class => 'rank-project'}) %>
+        <div class='col-md-4'>
+          <div class="card">
+            <div class="card-header">
+              <%= pitch.title %>
+              <%= select_tag(:ranks, options_for_select((@pitches.map.with_index {|pitch, idx| [idx+1, pitch.id]}).unshift(['',''])),  {:class => 'rank-project'}) %>
+            </div>
+            <div class="card-block">
+              <blockquote class="card-blockquote">
+                <p><%= truncate(pitch.description, length: 140) %></p>
+              </blockquote>
+            </div>
           </div>
-          <div class="panel-body">
-            <p><%= pitch.description %></p>
-          </div>
-        </div></div>
+        </div>
+
       <% end %>
     </div>
   </div>

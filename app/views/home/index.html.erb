@@ -1,17 +1,21 @@
 <div class="container">
   <div class="row">
     <% @pitches.each do |pitch| %>
-      <div class='col-md-4'><div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title" aria-label="title"><%= pitch.title %></h3>
-          <% if current_user.type == 'Teacher' %>
-            <span class="choose-idea"><%= pitch.votes.count%></span>
-          <% end %>
+      <div class='col-md-4'>
+        <div class="card">
+          <div class="card-header">
+            <%= pitch.title %>
+            <% if current_user.type == 'Teacher' %>
+              <span class="choose-idea"><%= pitch.votes.count%></span>
+            <% end %>
+          </div>
+          <div class="card-block">
+            <blockquote class="card-blockquote">
+              <p><%= pitch.description %></p>
+            </blockquote>
+          </div>
         </div>
-        <div class="panel-body">
-          <p><%= pitch.description %></p>
-        </div>
-      </div></div>
+      </div>
     <% end %>
   </div>
 </div>

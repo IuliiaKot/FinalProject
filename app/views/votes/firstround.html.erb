@@ -1,24 +1,28 @@
 <div class="container">
   <div class="row">
     <% @pitches.each do |pitch| %>
-      <div class='col-md-4'><div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title" aria-label="title"><%= pitch.title %></h3>
-          <% if current_user.type == 'Student' %>
-            <% if current_user.upvoted?(pitch) %>
-              <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote" checked="true">
-            <% else %>
-              <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote">
+      <div class='col-md-4 col-xs-6'>
+        <div class="card">
+          <div class="card-header">
+            <%= pitch.title %>
+            <% if current_user.type == 'Student' %>
+              <% if current_user.upvoted?(pitch) %>
+                <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote" checked="true">
+              <% else %>
+                <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote">
+              <% end %>
             <% end %>
-          <% end %>
-          <% if current_user.type == 'Teacher' %>
-            <span class="choose-idea"><%= pitch.votes.count%></span>
-          <% end %>
+            <% if current_user.type == 'Teacher' %>
+              <span class="choose-idea"><%= pitch.votes.count%></span>
+            <% end %>
+          </div>
+          <div class="card-block">
+            <blockquote class="card-blockquote">
+              <p><%= truncate(pitch.description, length: 140) %></p>
+            </blockquote>
+          </div>
         </div>
-        <div class="panel-body">
-          <p><%= pitch.description %></p>
-        </div>
-      </div></div>
+      </div>
     <% end %>
   </div>
 </div>
