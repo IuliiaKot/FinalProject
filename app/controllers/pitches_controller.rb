@@ -52,7 +52,7 @@ class PitchesController < ApplicationController
   def ranking
 
     @pitches = Cohort.last.pitches.where(final: true)
-
+    @errors = {}
     if @pitches.empty?
       @errors[:notice] = ['Wait for teacher action']
     end

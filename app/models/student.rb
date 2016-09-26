@@ -10,6 +10,7 @@ class Student < User
 
 
   def upvoted?(pitch)
+    # debugger
     !(self.votes.where(pitch_id: pitch.id).count.zero?)
   end
 
