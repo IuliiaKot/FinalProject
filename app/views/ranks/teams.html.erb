@@ -1,31 +1,52 @@
 <div class="container">
   <div class="row">
     <% @pitches.each do |pitch| %>
-    <div class="col-sm-4">
-        <div class="card">
-          <div class="card-header">
-            <%= pitch.student.full_name%>
+      <div class="col-md-3">
+          <div class="card">
+            <div class="card-header">
+              <%= pitch.student.full_name%>
+            </div>
+            <div class="card-block">
+              <h4 class="card-title"><%= pitch.title%></h4>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
           </div>
-          <div class="card-block">
-            <h4 class="card-title"><%= pitch.title%></h4>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-    </div>
+      </div>
     <% end %>
-  </div>
-</div>
-
-<div class="container"><div class='row'>
-  <% Student.all.each do |student| %>
-    <div class="col-md-4">
-      <ul class="list-group">
-        <li class='list-group-item'><b><%= student.full_name%></b></li>
-        <% student.ranks.order('rank ASC').each do |rank |%>
-          <li class="list-group-item"><%= rank.rank%>. <%= rank.pitch.title%></li>
-        <% end %>
-      </ul>
     </div>
-  <% end %></div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% @pitches.each do |pitch| %>
+        <div class="col-md-3">
+
+          <% (pitch.ranks.where(rank: 1)).each do |res| %>
+            <ul class="list-group">
+              <li class='list-group-item'><b><%= res.student.full_name%></b></li>
+              <li class="list-group-item"><%= res.pitch.title%></li>
+                <% res.student.ranks.each do |vote| %>
+                  <% if vote.rank > 1 %>
+                    <li class="list-group-item"><%= vote.pitch.title %></li>
+                  <% end %>
+                <% end %>
+            </ul>
+          <% end %>
+
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+  <!-- <div class="container"><div class='row'>
+    <% Student.all.each do |student| %>
+      <div class="col-md-4">
+        <ul class="list-group">
+          <li class='list-group-item'><b><%= student.full_name%></b></li>
+          <% student.ranks.order('rank ASC').each do |rank |%>
+            <li class="list-group-item"><%= rank.rank%>. <%= rank.pitch.title%></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div> -->
 </div>
