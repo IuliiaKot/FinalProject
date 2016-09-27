@@ -17,27 +17,51 @@
   </div>
 <div class="container">
   <div class="row">
-    <div id="div" class='col-md-3' ondrop="drop(event)" ondragover="allowDrop(event)">
-
-    </div>
-    <div id="div2" class='col-md-3' ondrop="drop(event)" ondragover="allowDrop(event)">
-
-    </div>
-    <div id="div3" class='col-md-3' ondrop="drop(event)" ondragover="allowDrop(event)">
-
-    </div>
-    <div id="div4" class='col-md-3' ondrop="drop(event)" ondragover="allowDrop(event)">
-
-    </div>
+      <div  id="left1" class="col-md-5">
+        <div class="card">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
+      </div>
+      <div id="left2"  class="col-md-5">
+        <div class="card">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
+      </div>
+      <div id="left3"  class="col-md-5">
+        <div class="card">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
+      </div>
+      <div id="left4" class="col-md-5">
+        <div class="card">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
+      </div>
+  </div>
 </div>
-</div>
+
   <div class="container">
-    <div class="row" id='div1' ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div class="row">
       <% @pitches.each do |pitch| %>
         <div class="col-md-3">
-
           <% (pitch.ranks.where(rank: 1)).each do |res| %>
-            <ul class="list-group" draggable="true" ondragstart="drag(event)" id="drag<%= res.id%>">
+            <ul class="list-group">
               <li class='list-group-item'><b><%= res.student.full_name%></b></li>
               <li class="list-group-item"><%= res.pitch.title%></li>
                 <% res.student.ranks.each do |vote| %>
