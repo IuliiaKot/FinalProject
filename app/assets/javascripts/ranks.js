@@ -14,4 +14,5 @@ $(document).ready(function(){
       })
     // $('#select_tag_id option:selected').text()
   })
+
 })

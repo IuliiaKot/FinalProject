@@ -15,13 +15,29 @@
     <% end %>
     </div>
   </div>
+<div class="container">
+  <div class="row">
+    <div id="div" class='col-md-3' ondrop="drop(event)" ondragover="allowDrop(event)">
+
+    </div>
+    <div id="div2" class='col-md-3' ondrop="drop(event)" ondragover="allowDrop(event)">
+
+    </div>
+    <div id="div3" class='col-md-3' ondrop="drop(event)" ondragover="allowDrop(event)">
+
+    </div>
+    <div id="div4" class='col-md-3' ondrop="drop(event)" ondragover="allowDrop(event)">
+
+    </div>
+</div>
+</div>
   <div class="container">
-    <div class="row">
+    <div class="row" id='div1' ondrop="drop(event)" ondragover="allowDrop(event)">
       <% @pitches.each do |pitch| %>
         <div class="col-md-3">
 
           <% (pitch.ranks.where(rank: 1)).each do |res| %>
-            <ul class="list-group">
+            <ul class="list-group" draggable="true" ondragstart="drag(event)" id="drag<%= res.id%>">
               <li class='list-group-item'><b><%= res.student.full_name%></b></li>
               <li class="list-group-item"><%= res.pitch.title%></li>
                 <% res.student.ranks.each do |vote| %>
