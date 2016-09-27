@@ -31,42 +31,12 @@ $(document).ready(function(){
       })
   })
 
-  // $('.nav li a').click(function(e) {
-  //
-  //   $('.nav li').removeClass('active');
-  //
-  //   var $parent = $(this).parent();
-  //   if (!$parent.hasClass('active')) {
-  //       $parent.addClass('active');
-  //   }
-  //   e.preventDefault();
-  // });
-
 
   let left1 = document.getElementById('left1');
   let left2 = document.getElementById('left2');
   let left3 = document.getElementById('left3');
   let left4 = document.getElementById('left4');
-   dragula([left1, left2, left3, left4]);
+  let allstudents = document.getElementById('allstudents');
+  // let test2 = document.getElementById('test2');
+   dragula([left1, left2, left3, left4, allstudents]);
 })
-
-
-// var selector = ".nav li";
-//
-//   $(selector).click(function(){
-//       $(selector).removeClass('active');
-//       $(this).addClass('active');
-//   });
-// function allowDrop(ev) {
-//   ev.preventDefault();
-// }
-//
-// function drag(ev) {
-//   ev.dataTransfer.setData("text", ev.target.id);
-// }
-//
-// function drop(ev) {
-//   ev.preventDefault();
-//   var data = ev.dataTransfer.getData("text");
-//   ev.target.appendChild(document.getElementById(data));
-// }

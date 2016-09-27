@@ -14,3 +14,23 @@
 
   // height: 70px;
 }
+.student-card:hover {
+  cursor: pointer;
+}
+.student-card {
+  font-size: 12px;
+  width: 30%;
+  // width: 60%;
+
+  li {
+    padding: 4px;
+  }
+}
+
+
+.student-card {
+  border: solid 1px #ccc;
+  border-radius: 2px;
+  margin-top: 10px;
+  width: 30%;
+}
