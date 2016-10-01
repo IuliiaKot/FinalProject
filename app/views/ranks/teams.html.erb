@@ -1,70 +1,36 @@
 <div class="container">
   <div class="row">
-    <% @pitches.each do |pitch| %>
-      <div class="col-md-12 col-xs-12">
+    <% @pitches.each_with_index do |pitch, idx| %>
+      <div class="col-md-6 col-xs-12">
           <div class="card">
             <div class="card-header">
-              <%= pitch.student.full_name%>
+              <b class="card-title"><%= pitch.title%></b> (<%= pitch.student.full_name%>)
             </div>
-            <div class="card-block">
-              <h4 class="card-title"><%= pitch.title%></h4>
+            <div class="card-block" id="pitch<%= idx+1%>">
+
             </div>
           </div>
       </div>
     <% end %>
     </div>
   </div>
-<div class="container">
-  <div class="row">
-      <div  id="left1" class="col-md-5">
-        <div class="card">
-            <ul class="list-group list-group-flush my-card">
-              <li class="list-group-item">Cras justo</li>
-              <li class="list-group-item">Dapibus ac</li>
-              <li class="list-group-item">Vestibulum</li>
-            </ul>
-          </div>
-      </div>
-      <div id="left2"  class="col-md-5">
-        <div class="card">
-            <ul class="list-group list-group-flush my-card" >
-              <li class="list-group-item">Back to future?</li>
-              <li class="list-group-item">Dapibus ac</li>
-              <li class="list-group-item">Vestibulum</li>
-            </ul>
-          </div>
-      </div>
-      <div id="left3"  class="col-md-5">
-        <div class="card">
-            <ul class="list-group list-group-flush my-card">
-              <li class="list-group-item">Cras justo</li>
-              <li class="list-group-item">Dapibus ac</li>
-              <li class="list-group-item">Vestibulum</li>
-            </ul>
-          </div>
-      </div>
-      <div id="left4" class="col-md-5">
-        <div class="card">
-            <ul class="list-group list-group-flush my-card">
-              <li class="list-group-item">Cras justo</li>
-              <li class="list-group-item">Dapibus ac</li>
-              <li class="list-group-item">Vestibulum</li>
-            </ul>
-          </div>
-      </div>
-  </div>
-</div>
+
 
 
 <div class="container" id="allstudents">
-  <% Student.all.each do |student| %>
-    <div class='card student-card'>
-      <h4><%= student.full_name%></h4>
-      <ul class="list-group list-group-flush my-card">
-        <% student.ranks.order('rank ASC').each do |rank| %>
-          <li class="list-group-item"><%= rank.rank%><%= rank.pitch.title%></li>
-        <% end %>
-      </ul>
+  <div class="row">
+    <% Student.all.each do |student| %>
+      <div class="col-md-4">
+      <div class='card student-card'>
+        <h7><b><%= student.full_name%></b>
+       </h7>
+        <ul class="list-group list-group-flush my-card">
+          <% student.ranks.order('rank ASC').each do |rank| %>
+            <li class="list-group-item"><%= rank.rank%>. <%= rank.pitch.title%></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

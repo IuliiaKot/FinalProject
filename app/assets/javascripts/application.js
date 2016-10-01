@@ -38,5 +38,11 @@ $(document).ready(function(){
   let left4 = document.getElementById('left4');
   let allstudents = document.getElementById('allstudents');
   // let test2 = document.getElementById('test2');
-   dragula([left1, left2, left3, left4, allstudents]);
+
+  let pitch1 = document.getElementById('pitch1');
+  let pitch2 = document.getElementById('pitch2');
+  let pitch3 = document.getElementById('pitch3');
+  let pitch4 = document.getElementById('pitch4');
+
+   dragula([pitch1, pitch2, pitch3, pitch4, allstudents]);
 })
