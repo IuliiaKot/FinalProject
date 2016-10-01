@@ -19,7 +19,6 @@
 
 $(document).ready(function(){
   $('.rank').click('on', function(e){
-    debugger
     var url = $(e.target).parent().find('input').attr('value');
     $.ajax({
       url:url,
@@ -30,37 +29,4 @@ $(document).ready(function(){
       })
   })
 
-  // $('.nav li a').click(function(e) {
-  //
-  //   $('.nav li').removeClass('active');
-  //
-  //   var $parent = $(this).parent();
-  //   if (!$parent.hasClass('active')) {
-  //       $parent.addClass('active');
-  //   }
-  //   e.preventDefault();
-  // });
-
-
-
 })
-
-// var selector = ".nav li";
-//
-//   $(selector).click(function(){
-//       $(selector).removeClass('active');
-//       $(this).addClass('active');
-//   });
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-}

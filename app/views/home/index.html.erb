@@ -4,9 +4,9 @@
       <div class='col-md-4'>
         <div class="card">
           <div class="card-header">
-            <%= pitch.title %>
+            <b><%= pitch.title %></b>
             <% if current_user.type == 'Teacher' %>
-              <span class="choose-idea"><%= pitch.votes.count%></span>
+              <span>(<%= pitch.student.full_name%>)</span>
             <% end %>
           </div>
           <div class="card-block">

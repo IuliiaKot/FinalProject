@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   # get 'teachers/create'
   get '/teachers/login' => 'teachers#login'
   post '/teachers' => 'teachers#create'
+  get '/teachers/settings' => 'teachers#settings'
+
+
   get '/votingresult' => 'pitches#votingresult'
   get '/ranking' => 'pitches#ranking'
   get '/firstround' => 'votes#firstround'

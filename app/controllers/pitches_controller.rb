@@ -45,8 +45,14 @@ class PitchesController < ApplicationController
   end
 
   def rank
-    Pitch.find_by(id: params[:pitch_id]).update(final: true)
-    render :json => {count: Cohort.last.pitches.where(final: true).count}
+    # debugger
+    cohort = Cohort.last
+    if (cohort.pitches.where(final: true).count >= cohort.setting.number_in_second_round)
+      render :json => {message: "Namber of pitches in second round should be #{cohort.setting.number_in_second_round}"}
+    else
+      Pitch.find_by(id: params[:pitch_id]).update(final: true)
+      render :json => {count: Cohort.last.pitches.where(final: true).count}
+    end
   end
 
   def ranking
