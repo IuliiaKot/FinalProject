@@ -13,6 +13,7 @@ Pitch.delete_all
 Rank.delete_all
 Vote.delete_all
 Teacher.delete_all
+Setting.delete_all
 
 
 Cohort.create!(name: 'NYC-Golden-Bears-2016')
@@ -41,3 +42,6 @@ Cohort.last.students[8].pitches.create(title: 'We work', description:'Synth lite
 Cohort.last.students[8].pitches.create(title: 'We live', description:'Synth literally tumblr portland brunch, paleo next level chillwave normcore. Organic man bun yuccie, quinoa activated charcoal skateboard humblebrag meggings post-ironic pork belly. Thundercats iPhone man braid, edison bulb venmo health goth kogi poutine lo-fi flexitarian roof party +1 kombucha post-ironic blog.')
 
 Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia", last_name: "Kotlenlp")
+
+
+Cohort.last.build_setting(pitches_per_student: 4, number_in_second_round: 6).save
