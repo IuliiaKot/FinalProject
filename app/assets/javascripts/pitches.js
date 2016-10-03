@@ -2,18 +2,22 @@
 // // # All this logic will automatically be available in application.js.
 // // # You can use CoffeeScript in this file: http://coffeescript.org/
 //
+
+
+// studetn voting in firts round
 $(document).ready(function(){
   // debugger
   $('.choose-idea').click('on',function(e){
     // debugger
     var url = $(e.target).parent().find('input').attr('value');
     var element = $(e.target).parent().find('input');
-    debugger
+    // debugger
     $.ajax({
       url:url,
       method: 'post'
     })
       .done(function(response){
+        debugger
         if (response.message){
           alert(response.message)
           $(element).prop("checked", false);
