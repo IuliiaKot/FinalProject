@@ -22,6 +22,9 @@ $(document).ready(function(){
           alert(response.message)
           $(element).prop("checked", false);
         }
+        if (response.delete) {
+          $(element).prop("checked", false);
+        }
         // if (response.count > 3) {
         //   var inputs = $('.choose-idea')
         //   for(var i = 0; i < inputs.length; i++){

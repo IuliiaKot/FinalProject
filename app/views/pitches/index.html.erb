@@ -11,9 +11,11 @@
     <% end %>
 
     <div class="">
-      <% if @pitches.count < current_user.cohort.setting.pitches_per_student && current_user.type == 'Student'%>
+      <% if urrent_user.type == 'Student' %>
+        <% if @pitches.count < current_user.cohort.setting.pitches_per_student%>
 
-        <a href="/pitches/new">Add</a>
-      <% end %>
+          <a href="/pitches/new">Add</a>
+        <% end %>
+      <% end %>  
     </div>
 </div>
