@@ -1,4 +1,7 @@
 <div class="container">
+  <% if @pitches.empty? %>
+    <p>You don't have any pitches yet.</p>
+  <% end %>
     <% @pitches.each do |pitch| %>
       <div class="card">
         <h4 class="card-header"><%= pitch.title %></h4>
@@ -11,11 +14,11 @@
     <% end %>
 
     <div class="">
-      <% if urrent_user.type == 'Student' %>
+      <% if current_user.type == 'Student' %>
         <% if @pitches.count < current_user.cohort.setting.pitches_per_student%>
 
           <a href="/pitches/new">Add</a>
         <% end %>
-      <% end %>  
+      <% end %>
     </div>
 </div>
