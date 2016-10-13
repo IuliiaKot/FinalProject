@@ -12,6 +12,8 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'better_errors'
+
+gem 'figaro'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

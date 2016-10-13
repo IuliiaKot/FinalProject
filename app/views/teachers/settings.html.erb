@@ -1,6 +1,7 @@
 <div class="container">
   <h4>Create a new cohort</h4>
-  <form>
+  <form action="/teachers/create_cohort" method='post'>
+    <%= form_for @cohort, :url => {:controller => "teachers", :action => "create_cohort"} do |f| %>
     <div class="form-group row">
       <label for="cohort" class="col-sm-2 col-form-label">Cohort</label>
       <div class="col-sm-6  ">
@@ -10,5 +11,5 @@
     <div class="col-sm-4">
       <button type="submit" class="btn btn-primary">Create</button>
     </div>
-  </form>
+  <% end %>
 </div>

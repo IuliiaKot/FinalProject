@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/teachers/login' => 'teachers#login'
   post '/teachers' => 'teachers#create'
   get '/teachers/settings' => 'teachers#settings'
+  post '/teachers/create_cohort' => 'teachers#create_cohort'
 
 
   get '/votingresult' => 'pitches#votingresult'

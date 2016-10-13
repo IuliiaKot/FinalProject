@@ -17,8 +17,12 @@ class TeachersController < ApplicationController
 
 
   def settings
+    @cohort = Cohort.new
   end
 
   def create_cohort
+    # debugger
+    StudentAccountMailer.sample_email(User.last).deliver_now
+    redirect_to teachers_settings_path
   end
 end
