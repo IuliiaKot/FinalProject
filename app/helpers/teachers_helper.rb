@@ -10,4 +10,5 @@ module TeachersHelper
   def require_user
     redirect_to new_student_path unless loggin?
   end
+
 end

@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+  include CSVParse
 
   def login
     @teacher = Teacher.new
@@ -22,6 +23,8 @@ class TeachersController < ApplicationController
 
   def create_cohort
     # debugger
+    Cohort.create(name: params[:cohort][:name])
+    # create student account base on backoffice api
     StudentAccountMailer.sample_email(User.last).deliver_now
     redirect_to teachers_settings_path
   end
