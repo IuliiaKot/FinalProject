@@ -15,3 +15,26 @@
  */
 
  @import "bootstrap";
+
+ body {
+   background-color: #f7f9fb;
+  //  #1c2d41
+ }
+
+.brand {
+  font-family: 'Rubik', sans-serif;
+}
+
+.navbar .brand{
+  color: white;
+}
+
+.btn {
+  background-color: #8BC7B8;
+  border-color: #8BC7B8;
+}
+
+.btn:hover {
+  background-color: #68a596;
+  border-color: #68a596;
+}

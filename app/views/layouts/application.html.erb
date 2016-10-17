@@ -7,18 +7,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:500" rel="stylesheet">
   </head>
 
   <body>
 
-    <nav class="navbar navbar-dark bg-inverse">
-          <a class="navbar-brand" href="/home">Final Project</a>
+    <nav class="navbar navbar-light" style="background-color: #758b9c;">
+          <a class="navbar-brand brand" href="/home">Final Project</a>
 
         <ul class="nav navbar-nav pull-xs-right">
           <% if loggin? %>
 
               <% if current_user.type == 'Student'%>
-                <li class="nav-item"><a class="nav-link" href="/firstround">Round 1</a></li>
+                <li class="nav-item"><a class="nav-link itm" href="/firstround">Round 1</a></li>
                 <li id='round2' class="nav-item"><a class="nav-link" href="/ranking">Round 2</a></li>
               <% else %>
                 <li class="nav-item"><a class="nav-link" href="/votingresult">Voting result</a></li>

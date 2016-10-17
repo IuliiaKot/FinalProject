@@ -1,5 +1,4 @@
 class TeachersController < ApplicationController
-  include CSVParse
 
   def login
     @teacher = Teacher.new
