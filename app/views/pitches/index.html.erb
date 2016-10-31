@@ -1,5 +1,4 @@
 <div class="container">
-  <% if current_user.cohort.setting.active %>
     <% if @pitches.empty? %>
       <p>You don't have any pitches yet.</p>
     <% end %>
@@ -22,9 +21,5 @@
           <% end %>
         <% end %>
       </div>
-    <% else %>
-      <div class="row">
-          <span>Wait for teacher action</span>
-      </div>
-    <% end %>
+  
 </div>

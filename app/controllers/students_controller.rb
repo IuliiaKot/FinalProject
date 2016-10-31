@@ -8,7 +8,6 @@ class StudentsController < ApplicationController
   end
 
   def create
-    debugger
     @student = Student.new(student_params)
     if @student.save
       session[:user_id] = @student.id

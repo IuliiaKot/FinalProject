@@ -41,9 +41,11 @@ ActiveRecord::Schema.define(version: 20161031193246) do
     t.integer  "cohort_id"
     t.integer  "pitches_per_student"
     t.integer  "number_in_second_round"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.boolean  "active"
+    t.integer  "number_of_teams"
+    t.integer  "student_vote_first_round"
     t.index ["cohort_id"], name: "index_settings_on_cohort_id"
   end
 

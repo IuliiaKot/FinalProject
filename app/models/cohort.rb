@@ -5,7 +5,7 @@ class Cohort < ApplicationRecord
   has_one :setting
 
   def self.import(file)
-    Cohort.create(name: file.original_filename)
+    Cohort.create(name: file.original_filename[0...-4])
     CSV.foreach(file.path, headers: true, header_converters: :symbol) do |row|
       row[:password] = SecureRandom.hex(10)
       Cohort.last.students.create!(row.to_hash)
@@ -16,13 +16,4 @@ class Cohort < ApplicationRecord
 
   end
 
-  # def self.open_spreadsheet(file)
-  #   # debugger
-  #   case File.extname(file.original_filename)
-  #   when ".csv" then CSV.new(file.path)
-  #   when ".xls" then Excel.new(file.path, nil, :ignore)
-  #   when ".xlsx" then Excelx.new(file.path, nil, :ignore)
-  #   else raise "Unknown file type: #{file.original_filename}"
-  #   end
-  # end
 end
