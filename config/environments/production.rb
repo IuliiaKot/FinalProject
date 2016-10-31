@@ -89,7 +89,7 @@ Rails.application.configure do
     :authentication => :plain,
     :address => "smtp.mailgun.org",
     :port => 587,
-    :domain => 'postmaster@appc0550504ea81404584f4e4b0216ca2f7.mailgun.org',
+    :domain => 'appc0550504ea81404584f4e4b0216ca2f7.mailgun.org',
     :user_name => ENV['MAILGUN_SMTP_LOGIN'],
     :password => ENV['MAILGUN_SMTP_PASSWORD']
   }
