@@ -1,4 +1,7 @@
 class StudentsController < ApplicationController
+
+  before_action :require_user, only: [:edit, :update]
+
   def new
     @student = Student.new
     @cohorts = Cohort.all.map {|cohort| [cohort.name, cohort.id]}
