@@ -4,9 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= Student.last.last_name %></h1>
+    <h4>Hi <%= @user.full_name%></h4>
     <p>
-      Sample mail sent using smtp.
+      You have account on DBCFinalProject.
+        <div class="">
+          <b>email:</b> <%= @user.email%>
+          <b>password:</b> <%= @password %>
+        </div>
     </p>
   </body>
 </html>

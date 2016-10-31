@@ -16,17 +16,17 @@ class TeachersController < ApplicationController
     end
   end
 
-
+# Debbie, Milburn, debbie.milburn@devbootcamp.com
   def settings
     @cohort = Cohort.new
   end
 
   def create_cohort
-    debugger
+    # debugger
 
-    Cohort.create(name: params[:cohort][:name])
+    # Cohort.create(name: params[:cohort][:name])
     # create student account base on backoffice api
-    StudentAccountMailer.sample_email(User.last).deliver_now
+    # StudentAccountMailer.sample_email(User.last).deliver_now
     redirect_to teachers_settings_path
   end
 

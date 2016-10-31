@@ -5,11 +5,15 @@ class Cohort < ApplicationRecord
   has_one :setting
 
   def self.import(file)
-    debugger
-    CSV.foreach(file.path, headers: true) do |row|
-      debugger
-      Student.create! row.to_hash
+    Cohort.create(name: file.original_filename)
+    CSV.foreach(file.path, headers: true, header_converters: :symbol) do |row|
+      row[:password] = SecureRandom.hex(10)
+      Cohort.last.students.create!(row.to_hash)
+      StudentAccountMailer.sample_email(Student.last, row[:password]).deliver_now
     end
+    # debugger
+    # StudentAccountMailer.sample_email(Student.last).deliver_now
+
   end
 
   # def self.open_spreadsheet(file)

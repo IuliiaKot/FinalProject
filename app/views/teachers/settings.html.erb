@@ -1,23 +1,13 @@
 <div class="container">
   <h4>Create a new cohort</h4>
-    <%= form_for @cohort, :url => {:controller => "teachers", :action => "create_cohort"} do |f| %>
+
 
       <div class="form-group row">
-        <%= f.label :cohort, class: "col-sm-2 col-form-label" %>
         <div class="col-sm-6 ">
-          <%= f.text_field :name, class: 'form-control', placeholder: 'NYC-Salamanders-2016', required: true%>
+          <%= form_tag import_teachers_path, multipart: true do %>
+            <%= file_field_tag :file %>
+            <%= submit_tag "Import", class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
-
-    <div class="col-sm-4">
-      <button type="submit" class="btn btn-primary">Create</button>
-    </div>
-  <% end %>
-
-  <h2>Import Products</h2>
-
-<%= form_tag import_teachers_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
 </div>
