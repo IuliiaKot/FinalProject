@@ -89,8 +89,8 @@ Rails.application.configure do
     :authentication => :plain,
     :address => "smtp.mailgun.org",
     :port => 587,
-    :domain => ENV['domain'],
-    :user_name => ENV['user_name'],
-    :password => ENV['password']
+    :domain => 'dbcfinalproject.herokuapp.com',
+    :user_name => ENV['MAILGUN_SMTP_LOGIN'],
+    :password => ENV['MAILGUN_SMTP_PASSWORD']
   }
 end
