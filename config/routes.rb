@@ -32,4 +32,8 @@ Rails.application.routes.draw do
   # namespace :admin do
   #   resources :teachers, only: [:new, :create]
   # end
+
+  resources :teachers do
+    collection { post :import }
+  end
 end

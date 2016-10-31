@@ -1,3 +1,4 @@
+require 'csv'
 class TeachersController < ApplicationController
 
   def login
@@ -21,10 +22,16 @@ class TeachersController < ApplicationController
   end
 
   def create_cohort
-    # debugger
+    debugger
+
     Cohort.create(name: params[:cohort][:name])
     # create student account base on backoffice api
     StudentAccountMailer.sample_email(User.last).deliver_now
     redirect_to teachers_settings_path
+  end
+
+  def import
+    Cohort.import(params[:file])
+    redirect_to root_url, notice: "Cohort imported."
   end
 end

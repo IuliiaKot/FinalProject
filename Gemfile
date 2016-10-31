@@ -14,6 +14,7 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'better_errors'
 
 gem 'figaro'
+gem 'roo'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
