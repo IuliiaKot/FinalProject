@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <% if @pitches.empty? %>
+      <span>This cohort doesn't have any pitches</span>
+    <% end %>
+    <% @pitches.each do |pitch| %>
+      <div class='col-md-4'>
+        <div class="card">
+          <div class="card-header">
+            <b><%= pitch.title %></b>
+            <% if current_user.type == 'Teacher' %>
+              <span>(<%= pitch.student.full_name%>)</span>
+            <% end %>
+          </div>
+          <div class="card-block">
+            <blockquote class="card-blockquote">
+              <p><%= pitch.description %></p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

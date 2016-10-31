@@ -21,13 +21,20 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create]
-  resources :students, only: [:new, :create]
+  resources :students, only: [:new, :create, :show, :edit, :update]
+    # resources :profile, only: [:show, :edit, :update]
+  # end
   resources :sessions, only: [:new, :create]
 
   get '/logout' => 'sessions#logout'
 
   root 'static_page#index'
   get '/home' => 'home#index'
+  get '/home/cohorts/:id' => 'home#cohort_projects'
+
+  # get '/students/:id/profile' => 'students#profile'
+  # put '/students/:id/profile' => 'students#update'
+
 
   # namespace :admin do
   #   resources :teachers, only: [:new, :create]

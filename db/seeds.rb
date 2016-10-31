@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# Cohort.delete_all
-# Student.delete_all
-# Pitch.delete_all
-# Rank.delete_all
-# Vote.delete_all
-# Teacher.delete_all
-# Setting.delete_all
+Cohort.delete_all
+Student.delete_all
+Pitch.delete_all
+Rank.delete_all
+Vote.delete_all
+Teacher.delete_all
+Setting.delete_all
 
 
 Cohort.create!(name: 'NYC-Golden-Bears-2016')

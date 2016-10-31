@@ -16,6 +16,7 @@ class TeachersController < ApplicationController
     end
   end
 
+
 # Debbie, Milburn, debbie.milburn@devbootcamp.com
   def settings
     @cohort = Cohort.new

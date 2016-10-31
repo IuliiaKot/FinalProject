@@ -8,11 +8,28 @@ class StudentsController < ApplicationController
     debugger
     @student = Student.new(student_params)
     if @student.save
-      session[:user_id] = @student.id 
+      session[:user_id] = @student.id
       redirect_to new_pitch_path
     else
       @errors = @student.errors.full_messages
       render 'new'
+    end
+  end
+
+  def edit
+    # debugger
+    @student = Student.find_by(id: params[:id])
+  end
+
+  def update
+    @student = Student.find_by(email: params[:student][:email])
+    debugger
+    if @student
+      @student.update_attributes(password: params[:student][:password])
+      redirect_to new_pitch_path
+    else
+      @errors = "Errors"
+      render "edit"
     end
   end
 

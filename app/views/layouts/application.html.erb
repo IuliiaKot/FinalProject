@@ -28,6 +28,7 @@
 
             <% if current_user.type == 'Student'%>
               <li class="nav-item"><a class="nav-link" href="/pitches">My pitches</a></li>
+              <li class="nav-item"><a class="nav-link" href="/students/<%=current_user.id%>/edit">Profile</a></li>
             <% else %>
               <li class="nav-item"><a class="nav-link" href="/teachers/settings">Settings</a></li>
             <% end %>

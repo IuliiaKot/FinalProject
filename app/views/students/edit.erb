@@ -1,0 +1,17 @@
+<div class="container">
+  <%= form_for  @student do |f| %>
+    <%= f.label :first_name%>
+    <%= f.text_field :first_name, class: 'form-control'%>
+
+    <%= f.label :last_name%>
+    <%= f.text_field :last_name, class: 'form-control'%>
+
+    <%= f.label :email%>
+    <%= f.text_field :email, class: 'form-control'%>
+
+    <%= f.label :password%>
+    <%= f.password_field :password, class: 'form-control'%>
+
+    <%= f.submit "Update", class: "btn btn-primary" %>
+  <% end %>
+</div>
