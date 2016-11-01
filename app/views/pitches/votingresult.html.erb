@@ -1,4 +1,7 @@
 <div class="container">
+  <% if @notice %>
+  <span><%= @notice %> <%= link_to "here", teachers_settings_path%></span>
+  <% else %>
   <% if @pitches.empty? %>
     <p>Students don't finish voting yet.</p>
   <% end %>
@@ -24,4 +27,5 @@
       </div>
     <% end %>
   </div>
+  <% end %>
 </div>

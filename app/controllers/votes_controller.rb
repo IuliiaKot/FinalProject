@@ -14,7 +14,7 @@ class VotesController < ApplicationController
     vote_wich_exist = Vote.where("pitch_id = ? and student_id = ?", pitch.id, current_user.id)
     if !vote_wich_exist.empty?
       vote_wich_exist.delete_all
-        render :json =>  {delete: "delere current vote"}
+        render :json =>  {delete: "delete current vote"}
     else
       if (current_user.votes.count >= current_user.cohort.setting.number_in_second_round)
         render :json => {message: "You can choose only #{current_user.cohort.setting.number_in_second_round} ideas"}
