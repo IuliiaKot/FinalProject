@@ -7,6 +7,7 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 
 gem 'coffee-rails', '~> 4.2'
 

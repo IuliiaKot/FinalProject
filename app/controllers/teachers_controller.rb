@@ -25,7 +25,8 @@ class TeachersController < ApplicationController
   end
 
   def import
-    Cohort.import(params[:file])
+    StudentAccountMailer.sample_email(User.last, 'h').deliver_now
+    # Cohort.import(params[:file])
     # redirect_to root_url, notice: "Cohort imported."
     redirect_to teachers_settings_path
   end
