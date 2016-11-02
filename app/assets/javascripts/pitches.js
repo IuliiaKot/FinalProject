@@ -6,18 +6,18 @@
 
 // studetn voting in firts round
 $(document).ready(function(){
-  //  
+  //
   $('.choose-idea').click('on',function(e){
-    //  
+    //
     var url = $(e.target).parent().find('input').attr('value');
     var element = $(e.target).parent().find('input');
-    //  
+    //
     $.ajax({
       url:url,
       method: 'post'
     })
       .done(function(response){
-         
+
         if (response.message){
           alert(response.message)
           $(element).prop("checked", false);
@@ -31,6 +31,7 @@ $(document).ready(function(){
         //       $(inputs[i]).attr('disabled', true)
         //   }
         // }
+        console.log("hello")
       })
   })
 })
