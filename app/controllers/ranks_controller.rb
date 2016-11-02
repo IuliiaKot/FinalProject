@@ -11,7 +11,7 @@ class RanksController < ApplicationController
     if setting.empty?
       @notice = "Thre is not active cohort right now. Probably you need to create a new one."
     else
-      @pitches = setting.cohort.pitches.where(final: true)
+      @pitches = setting.last.cohort.pitches.where(final: true)
     end
   end
 end

@@ -5,7 +5,7 @@ class HomeController < ApplicationController
       @pitches = current_user.cohort.pitches
       render 'cohort_projects'
     else
-      @cohorts = Cohort.all
+      @cohorts = Cohort.last
       render 'index'
     end
   end

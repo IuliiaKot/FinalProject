@@ -5,6 +5,7 @@ class PitchesController < ApplicationController
   def index
     if current_user.type == 'Student'
       @pitches = current_user.pitches
+
     else
       @pitches = Pitch.all
     end
@@ -47,7 +48,7 @@ class PitchesController < ApplicationController
     if setting.empty?
       @notice = "Thre is not active cohort right now. Probably you need to create a new one."
     else
-      @pitches = setting.cohort.pitches.sort_by {|pitch| -pitch.votes.count}
+      @pitches = setting.last.cohort.pitches.sort_by {|pitch| -pitch.votes.count}
     end
   end
 

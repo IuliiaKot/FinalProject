@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <ul>
-        <% @cohorts.each do |cohort| %>
-          <div class="col-md-12">
-            <li><a href="/home/cohorts/<%= cohort.id%>"><%= cohort.name%></a></li>
-          </div>
-        <% end %>
-    </ul>
+    <% if @cohorts %>
+      <ul>
+        <li><a href="/home/cohorts/<%= @cohorts.id%>"><%= @cohorts.name%></a></li>
+      </ul>
+    <% else %>
+      <span>There is not active cohort. Create a new one <%= link_to "here", teachers_settings_path%></span>
+    <% end %>
   </div>
 </div>
