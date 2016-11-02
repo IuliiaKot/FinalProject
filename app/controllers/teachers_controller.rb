@@ -38,6 +38,25 @@ class TeachersController < ApplicationController
       render 'show_cohort_settings'
     end
   end
+
+
+  def edit
+    @cohort = Cohort.last
+    @setting = @cohort.setting
+  end
+
+
+  def update_cohort_setting
+    # debugger
+    cohort = Cohort.find(params[:setting][:cohort_id])
+    if cohort.setting
+      cohort.setting.update_attributes(setting_params)
+      redirect_to home_path
+    else
+      @errors = ['error']
+      render 'edit'
+    end
+  end
   # def import
     # StudentAccountMailer.sample_email(User.last, 'h').deliver_now
     # Cohort.import(params[:file])

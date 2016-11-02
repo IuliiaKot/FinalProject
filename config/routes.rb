@@ -45,6 +45,8 @@ Rails.application.routes.draw do
       post :create_cohort
       get  :show_cohort_settings
       post :set_cohort_settings
+      get :edit
+      put :update_cohort_setting
      end
   end
 end
