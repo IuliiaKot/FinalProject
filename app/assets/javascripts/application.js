@@ -25,7 +25,7 @@ $(document).ready(function(){
       method: 'post'
     })
       .done(function(response){
-        debugger
+         
       })
   })
 

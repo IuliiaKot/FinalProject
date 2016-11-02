@@ -8,9 +8,9 @@ class VotesController < ApplicationController
 
 # studetn upvote for firstround
   def upvote
-    # debugger
+    #  
     pitch = Pitch.find_by(id: params[:pitch_id])
-    # debugger
+    #  
     vote_wich_exist = Vote.where("pitch_id = ? and student_id = ?", pitch.id, current_user.id)
     if !vote_wich_exist.empty?
       vote_wich_exist.delete_all

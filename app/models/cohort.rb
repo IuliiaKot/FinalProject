@@ -11,7 +11,7 @@ class Cohort < ApplicationRecord
       Cohort.last.students.create!(row.to_hash)
       StudentAccountMailer.sample_email(Student.last, row[:password]).deliver_now
     end
-    # debugger
+    #  
     # StudentAccountMailer.sample_email(Student.last).deliver_now
 
   end

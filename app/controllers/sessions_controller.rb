@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # debugger
+    #  
     @student = Student.find_by(email: params[:student][:email])
     if @student && @student.authenticate(params[:student][:password])
       session[:user_id] = @student.id

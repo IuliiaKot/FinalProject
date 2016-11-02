@@ -42,9 +42,9 @@ class PitchesController < ApplicationController
   end
 
   def votingresult
-    # debugger
+    #  
     setting = Setting.where(active: true)
-    # debugger
+    #  
     if setting.empty?
       @notice = "Thre is not active cohort right now. Probably you need to create a new one."
     else
@@ -53,7 +53,7 @@ class PitchesController < ApplicationController
   end
 
   def rank
-    # debugger
+    #  
     cohort = Cohort.last
     pitch = Pitch.find_by(id: params[:pitch_id])
     if pitch.final

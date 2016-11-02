@@ -19,13 +19,12 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    # debugger
+    #
     @student = Student.find_by(id: params[:id])
   end
 
   def update
     @student = Student.find_by(email: params[:student][:email])
-    debugger
     if @student
       @student.update_attributes(password: params[:student][:password])
       redirect_to new_pitch_path

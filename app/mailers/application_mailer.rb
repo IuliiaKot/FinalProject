@@ -3,7 +3,7 @@ class ApplicationMailer < ActionMailer::Base
   layout 'mailer'
 
   # def sample_email(user)
-  #   # debugger
+  #   #  
   #   @user = user
   #   mail(to: "kotlenko.julia@gmail.com", subject: "test")
   # end

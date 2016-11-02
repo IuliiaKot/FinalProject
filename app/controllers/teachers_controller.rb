@@ -47,7 +47,7 @@ class TeachersController < ApplicationController
 
 
   def update_cohort_setting
-    # debugger
+    #
     cohort = Cohort.find(params[:setting][:cohort_id])
     if cohort.setting
       cohort.setting.update_attributes(setting_params)
