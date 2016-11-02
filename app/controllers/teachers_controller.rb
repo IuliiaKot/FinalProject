@@ -51,7 +51,7 @@ class TeachersController < ApplicationController
     cohort = Cohort.find(params[:setting][:cohort_id])
     if cohort.setting
       cohort.setting.update_attributes(setting_params)
-      redirect_to home_path
+      redirect_to home_url
     else
       @errors = ['error']
       render 'edit'

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# 
+#
 # Cohort.delete_all
 # Student.delete_all
 # Pitch.delete_all
@@ -41,7 +41,7 @@
 # Cohort.last.students[8].pitches.create(title: 'We work', description:'Synth literally tumblr portland brunch, paleo next level chillwave normcore. Organic man bun yuccie, quinoa activated charcoal skateboard humblebrag meggings post-ironic pork belly. Thundercats iPhone man braid, edison bulb venmo health goth kogi poutine lo-fi flexitarian roof party +1 kombucha post-ironic blog.')
 # Cohort.last.students[8].pitches.create(title: 'We live', description:'Synth literally tumblr portland brunch, paleo next level chillwave normcore. Organic man bun yuccie, quinoa activated charcoal skateboard humblebrag meggings post-ironic pork belly. Thundercats iPhone man braid, edison bulb venmo health goth kogi poutine lo-fi flexitarian roof party +1 kombucha post-ironic blog.')
 
-Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia", last_name: "Kotlenlp")
-
+# Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia", last_name: "Kotlenlp")
+Cohort.last.students.create(first_name: "A", last_name: "B", email: "test@gmail.com", password: "123456")
 
 # Cohort.last.build_setting(pitches_per_student: 4, number_in_second_round: 6).save
