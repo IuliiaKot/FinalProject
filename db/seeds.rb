@@ -42,7 +42,8 @@ Cohort.last.students[8].pitches.create(title: 'We work', description:'Synth lite
 Cohort.last.students[8].pitches.create(title: 'We live', description:'Synth literally tumblr portland brunch, paleo next level chillwave normcore. Organic man bun yuccie, quinoa activated charcoal skateboard humblebrag meggings post-ironic pork belly. Thundercats iPhone man braid, edison bulb venmo health goth kogi poutine lo-fi flexitarian roof party +1 kombucha post-ironic blog.')
 
 Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia", last_name: "Kotlenlp")
-Cohort.last.setting.create(student_vote_first_round: 4, pitches_per_student: 3,number_in_second_round: 3,active: true )
+
+Setting.create(cohort_id: Cohort.last.id, student_vote_first_round: 4, pitches_per_student: 3,number_in_second_round: 3,active: true )
 # Cohort.last.students.create(first_name: "A", last_name: "B", email: "test@gmail.com", password: "123456")
 
 # Cohort.last.build_setting(pitches_per_student: 4, number_in_second_round: 6).save
