@@ -21,13 +21,34 @@ class TeachersController < ApplicationController
   end
 
   def create_cohort
-    redirect_to teachers_settings_path
+    Cohort.import(params[:file])
+    # redirect_to teachers_settings_path
+    redirect_to show_cohort_settings_teachers_path
   end
 
-  def import
-    StudentAccountMailer.sample_email(User.last, 'h').deliver_now
+  def show_cohort_settings
+  end
+
+  def set_cohort_settings
+    @setting = Setting.new(setting_params)
+    if @setting.save
+      redirect_to home_url, notice: "S"
+    else
+      @errors = @setting.errors.full_messages
+      render 'show_cohort_settings'
+    end
+  end
+  # def import
+    # StudentAccountMailer.sample_email(User.last, 'h').deliver_now
     # Cohort.import(params[:file])
     # redirect_to root_url, notice: "Cohort imported."
-    redirect_to teachers_settings_path
-  end
+    # redirect_to teachers_settings_path
+  # end
+
+  private
+    def setting_params
+      params[:setting][:cohort_id] = Cohort.last.id
+      params[:setting][:active] = true
+      params.require(:setting).permit(:cohort_id, :active, :pitches_per_student, :student_vote_first_round, :number_in_second_round, :number_of_teams)
+    end
 end

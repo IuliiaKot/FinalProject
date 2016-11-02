@@ -1,0 +1,30 @@
+<div class="container">
+  <h4>Create a new cohort</h4>
+    <div class="form-group row">
+
+      <%= form_tag set_cohort_settings_teachers_path do %>
+        <div class="form-group">
+            <label for="pitches_per_student">Number of pithes per student</label>
+            <input class= "form-control" type="integer" name="setting[pitches_per_student]" value="" id="pitches_per_student" required="true">
+        </div>
+
+        <div class="form-group">
+            <label for="student_vote_first_round">Number of vote per student in first round</label>
+            <input class= "form-control" type="integer" name="setting[student_vote_first_round]" value="" id="student_vote_first_round" required="true">
+        </div>
+        <div class="form-group">
+          <label for="number_in_second_round">Number of projects in second round</label>
+          <input class= "form-control" type="integer" name="setting[number_in_second_round]" value="" id="number_in_second_round" required="true">
+        </div>
+        <div class="form-group">
+          <label for="number_of_teams">Number of teams</label>
+          <input class= "form-control" type="integer" name="setting[number_of_teams]" value="" id="number_in_second_round" required="true">
+        </div>
+        <br>
+        <div class="form-group">
+          <br><input class= "form-control" type="submit" name="name"  class="btn btn-primary" value="Submit">
+        </div>
+      <% end %>
+
+    </div>
+</div>

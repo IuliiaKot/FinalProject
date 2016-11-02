@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/teachers/login' => 'teachers#login'
   post '/teachers' => 'teachers#create'
   get '/teachers/settings' => 'teachers#settings'
-  post '/teachers/create_cohort' => 'teachers#create_cohort'
+  # post '/teachers/create_cohort' => 'teachers#create_cohort'
 
 
   get '/votingresult' => 'pitches#votingresult'
@@ -41,6 +41,10 @@ Rails.application.routes.draw do
   # end
 
   resources :teachers do
-    collection { post :import }
+    collection do
+      post :create_cohort
+      get  :show_cohort_settings
+      post :set_cohort_settings
+     end
   end
 end

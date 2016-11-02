@@ -2,23 +2,9 @@
   <h4>Create a new cohort</h4>
     <div class="form-group row">
       <div class="col-md-6 ">
-        <%= form_tag import_teachers_path, multipart: true do %>
+        <%= form_tag create_cohort_teachers_path, multipart: true do %>
           <%= file_field_tag :file %>
-          <%= submit_tag "Import", class: "btn btn-primary" %>
-
-          <div class="col-md-6">
-              <label for="pitches_per_student">Number of pithes per student</label>
-              <input type="integer" name="name" value="" id="pitches_per_student">
-          </div>
-
-          <div class="col-md-6">
-              <label for="student_vote_first_round">Number of vote per student in first round</label>
-              <input type="integer" name="name" value="" id="student_vote_first_round">
-          </div>
-          <div class="col-md-6">
-            <label for="number_in_second_round">Number of projects in second round</label>
-            <input type="integer" name="name" value="" id="number_in_second_round">
-          </div>
+          <%= submit_tag "Create", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
