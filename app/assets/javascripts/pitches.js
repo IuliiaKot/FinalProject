@@ -9,6 +9,7 @@ $(document).ready(function(){
   //
   $('.choose-idea').click('on',function(e){
     //
+    console.log('I am here')
     var url = $(e.target).parent().find('input').attr('value');
     var element = $(e.target).parent().find('input');
     //
