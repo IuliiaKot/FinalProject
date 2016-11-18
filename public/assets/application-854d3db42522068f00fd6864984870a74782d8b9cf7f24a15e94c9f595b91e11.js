@@ -15639,6 +15639,7 @@ $(document).ready(function(){
   //
   $('.choose-idea').click('on',function(e){
     //
+    console.log('I am here')
     var url = $(e.target).parent().find('input').attr('value');
     var element = $(e.target).parent().find('input');
     //
@@ -15668,7 +15669,7 @@ $(document).ready(function(){
 ;
 $(document).ready(function(){
   $('.rank-project').on('change',function(e){
-     
+
     // var id = $('.rank-project option:selected').attr('value')
     // var id = $(e.target).find(':selected').attr('value')
     var id = $(e.target).parent().attr('value');
@@ -15679,6 +15680,7 @@ $(document).ready(function(){
       data: {rank: $(e.target).find(':selected').text()}
     })
       .done(function(respones){
+        console.log('1')
       })
     // $('#select_tag_id option:selected').text()
   })
