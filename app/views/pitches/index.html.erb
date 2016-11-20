@@ -17,9 +17,9 @@
         <% if current_user.type == 'Student' %>
           <% if @pitches.count < current_user.cohort.setting.pitches_per_student%>
 
-            <a href="/pitches/new">Add</a>
+            <a href="/pitches/new">Add a new Pitch</a>
           <% end %>
         <% end %>
       </div>
-  
+
 </div>

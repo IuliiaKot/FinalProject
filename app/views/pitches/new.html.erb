@@ -1,13 +1,14 @@
 <div class="container">
+    <%= render partial: '/partial/errors', layout: false, locals: {errors: @errors}%>
   <%= form_for :pitch, url: '/pitches'  do |f| %>
     <div class="form-group">
-      <%= f.label :title %>
+      <b><%= f.label :title %></b>
       <%= f.text_field :title, class: 'form-control', placaholder: 'Working Title'%>
     </div>
 
     <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: 'form-control', maxlength: "280", rows: '5'%>
+      <b><%= f.label :description %></b>
+      <%= f.text_area :description, class: 'form-control', maxlength: "680", rows: '5'%>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   <% end %>

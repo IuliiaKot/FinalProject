@@ -20,6 +20,7 @@ class PitchesController < ApplicationController
     if @pitch.save
       redirect_to pitches_path
     else
+      # debugger
       @errors = @pitch.errors.full_messages
       render 'new'
     end
@@ -42,9 +43,9 @@ class PitchesController < ApplicationController
   end
 
   def votingresult
-    #  
+    #
     setting = Setting.where(active: true)
-    #  
+    #
     if setting.empty?
       @notice = "Thre is not active cohort right now. Probably you need to create a new one."
     else
@@ -53,7 +54,7 @@ class PitchesController < ApplicationController
   end
 
   def rank
-    #  
+    #
     cohort = Cohort.last
     pitch = Pitch.find_by(id: params[:pitch_id])
     if pitch.final

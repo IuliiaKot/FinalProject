@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render partial: '/partial/errors', layout: false, locals: {errors: @errors}%>
   <%= form_for @student do |f| %>
     <div class="form-group">
       <%= f.label :email%>
