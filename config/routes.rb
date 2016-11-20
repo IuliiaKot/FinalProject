@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   #   resources :teachers, only: [:new, :create]
   # end
 
-  resources :teachers do
+  resources :teachers , except: [:index, :new, :create] do
     collection do
       post :create_cohort
       get  :show_cohort_settings

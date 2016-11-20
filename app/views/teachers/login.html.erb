@@ -1,15 +1,21 @@
 <div class="container">
-  <%= form_for :teacher, url: '/teachers' do |f| %>
-    <div class="form-group">
-      <%= f.label :email%>
-      <%= f.email_field :email, class: 'form-control'%>
-    </div>
-    <div class="form-group">
-      <%= f.label :password%>
-      <%= f.password_field :password, class: 'form-control'%>
-    </div>
+  <%= render partial: '/partial/errors', layout: false, locals: {errors: @errors}%>
+  <div class="login-container">
+    <div class="output"></div>
+    <div class="from-box">
+      <%= form_for :teacher, url: '/teachers' do |f| %>
+        <div class="form-group">
+          <%= f.label :email%>
+          <%= f.email_field :email, class: 'form-control', required: true%>
+        </div>
+        <div class="form-group">
+          <%= f.label :password%>
+          <%= f.password_field :password, class: 'form-control', required: true%>
+        </div>
 
-    <%= f.submit class: "btn btn-default"%>
+        <%= f.submit 'Login', class: "btn btn-default"%>
 
-  <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

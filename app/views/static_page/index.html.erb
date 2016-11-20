@@ -1,8 +1,14 @@
 <div class="container">
-  <h4>Welcome to Final Project App</h4>
-  <ul>
-    <li><%= link_to "Teacher", teachers_login_path %></li>
-    <li><%= link_to "Student", new_session_path %></li>
-  </ul>
+  <div class="jumbotron jumbotron-fluid">
+    <h4 class="text-center">Welcome to Final Project App</h4>
+    <p class="text-center">
+      Share your ideas and find team to make beautiful and meaningful things
+    </p>
+    <ul class='login-teacher-student text-center'>
+      <li><%= link_to "Teacher", teachers_login_path %></li>
+      <li><%= link_to "Student", new_session_path %></li>
+    </ul>
+
+  </div>
 
 </div>

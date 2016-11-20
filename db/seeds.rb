@@ -46,4 +46,4 @@ Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia
 Setting.create(cohort_id: Cohort.last.id, student_vote_first_round: 4, pitches_per_student: 3,number_in_second_round: 3,active: true )
 # Cohort.last.students.create(first_name: "A", last_name: "B", email: "test@gmail.com", password: "123456")
 
-# Cohort.last.build_setting(pitches_per_student: 4, number_in_second_round: 6).save
+Cohort.last.build_setting(pitches_per_student: 4, number_in_second_round: 6, student_vote_first_round: 7, number_of_teams: 4).save

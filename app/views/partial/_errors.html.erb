@@ -1,0 +1,9 @@
+<div class='container'>
+  <% if @errors %>
+  <ul class='alert alert-danger text-center'>
+    <% errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>

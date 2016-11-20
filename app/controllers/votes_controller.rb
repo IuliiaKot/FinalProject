@@ -16,6 +16,7 @@ class VotesController < ApplicationController
       vote_wich_exist.delete_all
         render :json =>  {delete: "delete current vote"}
     else
+      # debugger
       if (current_user.votes.count >= current_user.cohort.setting.student_vote_first_round)
         render :json => {message: "You can choose only #{current_user.cohort.setting.student_vote_first_round} ideas"}
       else
