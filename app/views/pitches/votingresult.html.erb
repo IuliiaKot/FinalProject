@@ -13,7 +13,13 @@
         <div class="card">
           <div class="card-header">
             <%= pitch.title %>
-            <span class="rank tag tag-default tag-pill pull-xs-right"><%= pitch.votes.count%></span>
+              <% if pitch.votes.count <= 2 %>
+                <span class="rank rank-red tag tag-default tag-pill pull-xs-right"><%= pitch.votes.count%></span>
+              <% elsif  pitch.votes.count >=3 && pitch.votes.count <=5 %>
+                <span class="rank rank-orange tag tag-default tag-pill pull-xs-right"><%= pitch.votes.count%></span>
+              <% else %>
+              <span class="rank rank-green tag tag-default tag-pill pull-xs-right"><%= pitch.votes.count%></span>
+              <% end %>
             <% if pitch.final %>
               <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/rank" checked="true">
             <% else %>
