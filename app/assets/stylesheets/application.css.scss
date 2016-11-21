@@ -179,3 +179,19 @@
     transform: translateY(0);
   }
 }
+
+.container {
+  padding-top: 50px;
+}
+
+.footer {
+  height: 60px;
+  div {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  span {
+    color: white;
+    text-align: center;
+  }
+}
