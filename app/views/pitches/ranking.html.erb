@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <% if @errors %>
-        <p><%= @errors[:notice] %></p>
+        <h5 class='text-center'><%= @errors[:notice].last %></h5>
       <% end %>
       <% @pitches.each do |pitch| %>
         <div class='col-md-4'>
