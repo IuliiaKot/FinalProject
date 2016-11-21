@@ -15679,8 +15679,13 @@ $(document).ready(function(){
       url: url,
       data: {rank: $(e.target).find(':selected').text()}
     })
-      .done(function(respones){
-        console.log('1')
+      .done(function(response){
+        // debugger
+        if (response) {
+          if (response.message){
+            alert(response.message)
+          }
+        }
       })
     // $('#select_tag_id option:selected').text()
   })
