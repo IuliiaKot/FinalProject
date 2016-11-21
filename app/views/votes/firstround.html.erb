@@ -1,29 +1,37 @@
 <div class="container">
+  <% if current_user.active_first_round? %>
 
-  <div class="row" >
-    <% @pitches.each do |pitch| %>
-      <div class='col-md-4 col-xs-12'>
-        <div class="card" id='accordion'>
-          <div class="card-header">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= pitch.id%>"><%= pitch.title %></a>
-            <% if current_user.type == 'Student' %>
-              <% if current_user.upvoted?(pitch) %>
-                <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote" checked="true">
-              <% else %>
-                <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote">
+    <div class="row" >
+      <% @pitches.each do |pitch| %>
+        <div class='col-md-4 col-xs-12'>
+          <div class="card" id='accordion'>
+            <div class="card-header">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= pitch.id%>"><%= pitch.title %></a>
+              <% if current_user.type == 'Student' %>
+                <% if current_user.upvoted?(pitch) %>
+                  <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote" checked="true">
+                <% else %>
+                  <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote">
+                <% end %>
               <% end %>
-            <% end %>
-            <% if current_user.type == 'Teacher' %>
-              <span class="choose-idea"><%= pitch.votes.count%></span>
-            <% end %>
+              <% if current_user.type == 'Teacher' %>
+                <span class="choose-idea"><%= pitch.votes.count%></span>
+              <% end %>
+            </div>
+            <div id="collapse<%= pitch.id%>" class="panel-collapse collapse"><div class="card-block">
+              <blockquote class="card-blockquote">
+                <p><%= truncate(pitch.description, length: 140) %></p>
+              </blockquote>
+            </div></div>
           </div>
-          <div id="collapse<%= pitch.id%>" class="panel-collapse collapse"><div class="card-block">
-            <blockquote class="card-blockquote">
-              <p><%= truncate(pitch.description, length: 140) %></p>
-            </blockquote>
-          </div></div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="">
+      <p>
+      The first round not opened yet, please wait for teacher action.
+      </p>
+    </div>
+  <% end %>
 </div>

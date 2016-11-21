@@ -57,6 +57,13 @@ class TeachersController < ApplicationController
       render 'edit'
     end
   end
+
+
+  def active_first_round
+    cohort = Cohort.last.setting
+    cohort.active_first_round = true
+    cohort.save
+  end
   # def import
     # StudentAccountMailer.sample_email(User.last, 'h').deliver_now
     # Cohort.import(params[:file])

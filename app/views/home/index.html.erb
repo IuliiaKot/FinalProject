@@ -3,6 +3,12 @@
     <% if @cohorts %>
       <ul>
         <li><a href="/home/cohorts/<%= @cohorts.id%>"><%= @cohorts.name%></a> <a href="/teachers/edit">Setting</a></li>
+        <% if !@cohorts.setting.active_first_round %>
+          <div>
+            <%= link_to 'Activer Round 1', active_first_round_teachers_url, method: 'put',  class: 'btn btn-primary'%>
+          </div>
+
+        <% end %>
       </ul>
     <% else %>
       <span>There is not active cohort. Create a new one <%= link_to "here", teachers_settings_path%></span>

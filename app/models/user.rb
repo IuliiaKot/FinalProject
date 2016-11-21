@@ -1,4 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
-  validates :password, presence: true  
+  validates :password, presence: true
+
+
+  def active_first_round?
+    self.cohort.setting.active_first_round
+  end
 end
