@@ -27,7 +27,7 @@ class StudentsController < ApplicationController
     @student = Student.find_by(email: params[:student][:email])
     if @student
       @student.update_attributes(password: params[:student][:password])
-      redirect_to new_pitch_path
+      redirect_to home_path
     else
       @errors = "Errors"
       render "edit"
