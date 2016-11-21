@@ -25,11 +25,10 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find_by(email: params[:student][:email])
-    if @student
-      @student.update_attributes(password: params[:student][:password])
+    if @student && @student.update_attributes(password: params[:student][:password])
       redirect_to home_path
     else
-      @errors = "Errors"
+      @errors = @student.errors.full_messages
       render "edit"
     end
   end
