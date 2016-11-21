@@ -15669,7 +15669,7 @@ $(document).ready(function(){
 ;
 $(document).ready(function(){
   $('.rank-project').on('change',function(e){
-
+    console.log('1');
     // var id = $('.rank-project option:selected').attr('value')
     // var id = $(e.target).find(':selected').attr('value')
     var id = $(e.target).parent().attr('value');
@@ -15745,6 +15745,8 @@ $(document).ready(function(){
 
       })
   })
-
+  $('.popover-dismiss').popover({
+    trigger: 'focus'
+  })
 })
 ;
