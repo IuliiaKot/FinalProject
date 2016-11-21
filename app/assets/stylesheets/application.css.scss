@@ -16,10 +16,15 @@
 
  @import "bootstrap";
 
+ html {
+   position: relative;
+   min-height: 100%;
+ }
  body {
    background-color: #f7f9fb;
   //  #1c2d41
  }
+
 
 .brand {
   font-family: 'Rubik', sans-serif;
@@ -182,16 +187,19 @@
 
 .container {
   padding-top: 50px;
+
 }
 
+
+///footer
 .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
   height: 60px;
-  div {
-    margin-top: 20px;
-    padding-top: 20px;
-  }
-  span {
-    color: white;
-    text-align: center;
+  background-color: #f5f5f5;
+  p {
+    margin-top: 15px;
   }
 }
