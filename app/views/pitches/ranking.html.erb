@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container">
     <div class="row">
-      <% if @errors %>
+      <% if @errors[:notice] %>
         <h5 class='text-center'><%= @errors[:notice].last %></h5>
       <% end %>
       <% @pitches.each do |pitch| %>
