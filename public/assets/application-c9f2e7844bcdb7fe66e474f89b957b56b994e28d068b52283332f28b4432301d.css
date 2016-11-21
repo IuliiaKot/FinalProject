@@ -7881,3 +7881,24 @@ body {
 .footer p {
   padding-top: 10px;
 }
+
+/* line 215, /Users/iuliiakotlenko/Documents/DBC/nyc-salamanders-2016/FinalProject/app/assets/stylesheets/application.css.scss */
+.rank-green {
+  background-color: green;
+  opacity: 0.5;
+  width: 30px;
+}
+
+/* line 221, /Users/iuliiakotlenko/Documents/DBC/nyc-salamanders-2016/FinalProject/app/assets/stylesheets/application.css.scss */
+.rank-red {
+  background-color: red;
+  opacity: 0.5;
+  width: 30px;
+}
+
+/* line 226, /Users/iuliiakotlenko/Documents/DBC/nyc-salamanders-2016/FinalProject/app/assets/stylesheets/application.css.scss */
+.rank-orange {
+  background-color: orange;
+  opacity: 0.5;
+  width: 30px;
+}
