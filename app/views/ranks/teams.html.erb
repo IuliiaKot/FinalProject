@@ -5,22 +5,29 @@
       <span><%= @notice%></span>
     <% else %>
 
-    <% @pitches.each do |pitch| %>
+    <% @students.each do |student| %>
       <div class="col-md-3 col-xs-12">
-          <div class="card">
-            <div class="card-header">
-              <%= pitch.student.full_name%>
-            </div>
-            <div class="card-block">
-              <h4 class="card-title"><%= pitch.title%></h4>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+          <ul class="list-group">
+            <li class='list-group-item'><b><%= student.full_name%></b></li>
+            <% student.ranks.order(:rank).each do |rank|%>
+
+              <% if rank.rank == 1 %>
+                <li class='list-group-item'><span style='color: #5cb85c'><%= rank.rank%>. <%= rank.pitch.title%></span></li>
+              <% elsif rank.rank == 2 %>
+                <li class='list-group-item '><span style='color: #5BC0DE'><%= rank.rank%>. <%= rank.pitch.title%></span></li>
+              <% elsif rank.rank == 3 %>
+                <li class='list-group-item '><span style='color: #F0AD4E'><%= rank.rank%>. <%= rank.pitch.title%></span></li>
+              <% else %>
+                <li class='list-group-item '><span><%= rank.rank%>. <%= rank.pitch.title%></span></li>
+              <%end%>
+
+            <% end %>
+          </ul>
       </div>
     <% end %>
     </div>
   </div>
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div id="div" class='col-md-3' ondrop="drop(event)" ondragover="allowDrop(event)">
 
@@ -34,9 +41,9 @@
     <div id="div4" class='col-md-3' ondrop="drop(event)" ondragover="allowDrop(event)">
 
     </div>
-</div>
-</div>
-  <div class="container">
+  </div>
+</div> -->
+  <!-- <div class="container">
     <div class="row" id='div1' ondrop="drop(event)" ondragover="allowDrop(event)">
       <% @pitches.each do |pitch| %>
         <div class="col-md-3">
@@ -57,7 +64,7 @@
       <% end %>
     </div>
   <% end %>
-  </div>
+  </div> -->
   <!-- <div class="container"><div class='row'>
     <% Student.all.each do |student| %>
       <div class="col-md-4">
@@ -70,4 +77,3 @@
       </div>
     <% end %>
   </div> -->
-</div>

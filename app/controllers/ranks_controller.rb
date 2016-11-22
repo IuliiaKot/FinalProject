@@ -13,6 +13,7 @@ class RanksController < ApplicationController
 
   def teams
     setting = Setting.where(active: true)
+    @students = Cohort.last.students
     if setting.empty?
       @notice = "There is not active cohort right now. Probably you need to create a new one."
     else
