@@ -15669,7 +15669,7 @@ $(document).ready(function(){
 ;
 $(document).ready(function(){
   $('.rank-project').on('change',function(e){
-
+    console.log('1');
     // var id = $('.rank-project option:selected').attr('value')
     // var id = $(e.target).find(':selected').attr('value')
     var id = $(e.target).parent().attr('value');
@@ -15679,8 +15679,13 @@ $(document).ready(function(){
       url: url,
       data: {rank: $(e.target).find(':selected').text()}
     })
-      .done(function(respones){
-        console.log('1')
+      .done(function(response){
+        // debugger
+        if (response) {
+          if (response.message){
+            alert(response.message)
+          }
+        }
       })
     // $('#select_tag_id option:selected').text()
   })
@@ -15745,6 +15750,8 @@ $(document).ready(function(){
 
       })
   })
-
+  $('.popover-dismiss').popover({
+    trigger: 'focus'
+  })
 })
 ;

@@ -13,13 +13,14 @@
         </div>
       <% end %>
 
-      <div class="">
-        <% if current_user.type == 'Student' %>
-          <% if @pitches.count < current_user.cohort.setting.pitches_per_student%>
 
-            <a href="/pitches/new">Add a new Pitch</a>
+        <% if current_user.type == 'Student' %>
+          <% if current_user.cohort.setting.active %>
+            <% if @pitches.count < current_user.cohort.setting.pitches_per_student%>
+              <a href="/pitches/new" class='link_to_new_pitch'>Add a new Pitch</a>
+            <% end %>
           <% end %>
         <% end %>
-      </div>
+
 
 </div>

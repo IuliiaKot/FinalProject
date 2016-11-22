@@ -16,10 +16,17 @@
 
  @import "bootstrap";
 
+ html {
+   position: relative;
+   min-height: 100%;
+ }
+
  body {
    background-color: #f7f9fb;
+   margin-bottom: 60px;
   //  #1c2d41
  }
+
 
 .brand {
   font-family: 'Rubik', sans-serif;
@@ -182,16 +189,42 @@
 
 .container {
   padding-top: 50px;
+  height: 90%;
+}
+.link_to_new_pitch {
+  // padding-bottom: 20px;
 }
 
+
+///footer
 .footer {
-  height: 60px;
-  div {
-    margin-top: 20px;
-    padding-top: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  background-color: #f5f5f5;
+  p {
+    padding-top: 10px;
   }
-  span {
-    color: white;
-    text-align: center;
-  }
+}
+
+
+
+.rank-green {
+  background-color: green;
+  opacity: 0.5;
+  width: 30px;
+  // height: 20px;
+}
+.rank-red {
+  background-color: red;
+  opacity: 0.5;
+  width: 30px;
+}
+.rank-orange {
+  background-color: orange;
+  opacity: 0.5;
+  width: 30px;
+  // height: 20px;
 }

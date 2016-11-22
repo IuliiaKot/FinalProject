@@ -1,21 +1,21 @@
 <div class="container">
   <%= render partial: '/partial/errors', layout: false, locals: {errors: @errors}%>
-  <div class="login-container">
-    <div class="output"></div>
-    <div class="from-box">
-      <%= form_for :teacher, url: '/teachers' do |f| %>
-        <div class="form-group">
-          <%= f.label :email%>
-          <%= f.email_field :email, class: 'form-control', required: true%>
-        </div>
-        <div class="form-group">
-          <%= f.label :password%>
-          <%= f.password_field :password, class: 'form-control', required: true%>
-        </div>
+    <div class="login-container">
+      <div class="output"></div>
+      <div class="from-box">
+        <%= form_for :teacher, url: '/teachers' do |f| %>
+          <div class="form-group">
+            <%= f.label :email%>
+            <%= f.email_field :email, class: 'form-control', required: true%>
+          </div>
+          <div class="form-group">
+            <%= f.label :password%>
+            <%= f.password_field :password, class: 'form-control', required: true%>
+          </div>
 
-        <%= f.submit 'Login', class: "btn btn-default"%>
-
-      <% end %>
+          <%= f.submit 'Login', class: "btn btn-default"%>
+        <% end %>
+        <%= link_to 'Student', new_session_path%>
+      </div>
     </div>
-  </div>
 </div>
