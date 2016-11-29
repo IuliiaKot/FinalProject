@@ -13,11 +13,26 @@ class RanksController < ApplicationController
 
   def teams
     setting = Setting.where(active: true)
+    @teams = split_students_by_teams
+    # debugger
     @students = Cohort.last.students
     if setting.empty?
       @notice = "There is not active cohort right now. Probably you need to create a new one."
     else
       @pitches = setting.last.cohort.pitches.where(final: true)
     end
+  end
+
+
+  def split_students_by_teams
+    students = Cohort.last.students
+    final_pitches = Pitch.where(final: true)
+    team1,team2, team3 = [],[],[]
+    # Student.all.joins(ranks: :pitch).merge(Pitch.where(id:pitch[0])).merge(Rank.where(rank: 1))
+
+    res = final_pitches.map do |pitch|
+      {student: Student.find_student_for_team(pitch.id, pitch.ranks.group('rank').order('count(rank) DESC')[0].rank), pitch: pitch.title}
+    end
+    res.sort_by {|team| -team[:student].count}
   end
 end

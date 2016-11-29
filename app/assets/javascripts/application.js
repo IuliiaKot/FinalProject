@@ -26,9 +26,15 @@ $(document).ready(function(){
     })
       .done(function(response){
 
-      })
-  })
+      });
+  });
   $('.popover-dismiss').popover({
     trigger: 'focus'
-  })
-})
+  });
+
+  let box1 = document.getElementById('team1');
+  let box2 = document.getElementById('team2');
+  let box3 = document.getElementById('team3');
+  let allstudents = document.getElementsByClassName('student');
+  dragula([box1, box2, box3]);
+});

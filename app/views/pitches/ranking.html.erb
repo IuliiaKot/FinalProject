@@ -9,7 +9,7 @@
           <div class="card">
             <div class="card-header" value='<%= pitch.id%>'>
               <%= pitch.title %>
-              <%= select_tag(:ranks, options_for_select((@pitches.map.with_index {|pitch, idx| [idx+1, pitch.id]}).unshift(['','']), current_user.ranks.where(pitch_id: pitch.id).last.rank),  {:class => 'rank-project'}) %>
+              <%= select_tag(:ranks, options_for_select((@pitches.map.with_index {|pitch, idx| [idx+1, pitch.id]}).unshift(['',''])),  {:class => 'rank-project'}) %>
             </div>
             <div class="card-block">
               <blockquote class="card-blockquote">

@@ -10,8 +10,12 @@ class Student < User
 
 
   def upvoted?(pitch)
-    #  
+    #
     !(self.votes.where(pitch_id: pitch.id).count.zero?)
+  end
+
+  def self.find_student_for_team(pitch_id, rank)
+    all.joins(ranks: :pitch).merge(Pitch.where(id:pitch_id)).merge(Rank.where(rank: 1))
   end
 
 end
