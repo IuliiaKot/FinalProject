@@ -60,18 +60,18 @@ class PitchesController < ApplicationController
     if pitch.final
       pitch.update(final: false)
     else
-      if (cohort.pitches.where(final: true).count >= cohort.setting.number_in_second_round)
+      if (cohort.pitches.in_second_round.count >= cohort.setting.number_in_second_round)
         render :json => {message: "Number of pitches in second round should be #{cohort.setting.number_in_second_round}"}
       else
         Pitch.find_by(id: params[:pitch_id]).update(final: true)
-        render :json => {count: Cohort.last.pitches.where(final: true).count}
+        render :json => {count: Cohort.last.pitches.in_second_round.count}
       end
     end
   end
 
   def ranking
 
-    @pitches = Cohort.last.pitches.where(final: true)
+    @pitches = Cohort.last.pitches.in_second_round
     @errors = {}
     if @pitches.empty?
       @errors[:notice] = ['Wait for teacher action']

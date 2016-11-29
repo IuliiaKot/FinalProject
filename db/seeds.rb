@@ -63,9 +63,9 @@
 
 # ranking
 
-final_ideas = Cohort.last.pitches.where(final: true)
+final_ideas = Cohort.last.pitches.in_second_round
 Student.all.each do |student|
-  rank = (1..final_ideas.length).to_a.shuffle 
+  rank = (1..final_ideas.length).to_a.shuffle
   final_ideas.each do |pitch|
     pitch.ranks.create(rank: rank.shift, student_id: student.id)
   end
