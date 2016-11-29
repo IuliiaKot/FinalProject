@@ -1,9 +1,9 @@
 <div class="container">
     <% Cohort.last.setting.number_of_teams.times do |team| %>
-        <div class="" id="team<%=team+1%>">
-          <p>
-            hello
-          </p>
+        <div class="col-md-3 team" id="team<%=team+1%>">
+          <% 3.times %>
+            <span>Name</span>
+          <% end %>
         </div>
     <% end %>
 </div>
