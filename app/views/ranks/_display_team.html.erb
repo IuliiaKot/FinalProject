@@ -1,12 +1,14 @@
 <div class="container">
     <% Cohort.last.setting.number_of_teams.times do |idx| %>
-        <div class="col-md-6 team" id="team<%=idx+1%>">
-          <div class="">
-            <span><%= teams[idx][:pitch]%></span>
+        <div class="col-md-6 team" >
+            <div class="">
+              <span><%= teams[idx][:pitch]%></span>
+            </div>
+          <div id="team<%=idx+1%>">
+            <% teams[idx][:student].each do |student|%>
+              <span class='student'><%= student.first_name %></span>
+            <% end %>
           </div>
-          <% teams[idx][:student].each do |student|%>
-            <span class='student'><%= student.first_name %></span>
-          <% end %>
         </div>
     <% end %>
 </div

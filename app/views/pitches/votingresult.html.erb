@@ -12,19 +12,26 @@
       <div class='col-md-4'>
         <div class="card">
           <div class="card-header">
-            <%= pitch.title %>
+            <% if pitch.final %>
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input choose-idea" value="/pitches/<%= pitch.id %>/rank" checked="true">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description"><%= pitch.title %></span>
+              </label>
+            <% else %>
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input choose-idea" value="/pitches/<%= pitch.id %>/rank" >
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description"><%= pitch.title %></span>
+              </label>
+            <% end %>
               <% if pitch.votes.count <= 2 %>
                 <span class="rank rank-red tag tag-default tag-pill pull-xs-right"><%= pitch.votes.count%></span>
               <% elsif  pitch.votes.count >=3 && pitch.votes.count <=5 %>
                 <span class="rank rank-orange tag tag-default tag-pill pull-xs-right"><%= pitch.votes.count%></span>
               <% else %>
-              <span class="rank rank-green tag tag-default tag-pill pull-xs-right"><%= pitch.votes.count%></span>
+                <span class="rank rank-green tag tag-default tag-pill pull-xs-right"><%= pitch.votes.count%></span>
               <% end %>
-            <% if pitch.final %>
-              <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/rank" checked="true">
-            <% else %>
-              <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/rank">
-            <% end %>
           </div>
           <!-- <div class="card-block">
             <blockquote class="card-blockquote">

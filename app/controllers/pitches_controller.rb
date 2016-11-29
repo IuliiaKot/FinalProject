@@ -20,7 +20,6 @@ class PitchesController < ApplicationController
     if @pitch.save
       redirect_to pitches_path
     else
-      # debugger
       @errors = @pitch.errors.full_messages
       render 'new'
     end
