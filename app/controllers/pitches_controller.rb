@@ -42,9 +42,7 @@ class PitchesController < ApplicationController
   end
 
   def votingresult
-    #
     setting = Setting.where(active: true)
-    #
     if setting.empty?
       @notice = "Thre is not active cohort right now. Probably you need to create a new one."
     else
@@ -53,16 +51,16 @@ class PitchesController < ApplicationController
   end
 
   def rank
-    #
     cohort = Cohort.last
     pitch = Pitch.find_by(id: params[:pitch_id])
     if pitch.final
       pitch.update(final: false)
+      render :json => {}
     else
       if (cohort.pitches.in_second_round.count >= cohort.setting.number_in_second_round)
         render :json => {message: "Number of pitches in second round should be #{cohort.setting.number_in_second_round}"}
       else
-        Pitch.find_by(id: params[:pitch_id]).update(final: true)
+        pitch.update(final: true)
         render :json => {count: Cohort.last.pitches.in_second_round.count}
       end
     end

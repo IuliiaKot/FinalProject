@@ -1,5 +1,4 @@
 <div class="container">
-  <div class="container">
     <div class="row">
       <% if @errors[:notice] %>
         <h5 class='text-center'><%= @errors[:notice].last %></h5>
@@ -9,7 +8,7 @@
           <div class="card">
             <div class="card-header" value='<%= pitch.id%>'>
               <%= pitch.title %>
-              <%= select_tag(:ranks, options_for_select((@pitches.map.with_index {|pitch, idx| [idx+1, pitch.id]}).unshift(['',''])),  {:class => 'rank-project'}) %>
+              <%= select_tag(:ranks, options_for_select(@pitches.map.with_index {|pitch, idx| [idx+1, pitch.id]}.unshift(['','']) ),  {:class => 'rank-project custom-select'}) %>
             </div>
             <div class="card-block">
               <blockquote class="card-blockquote">
@@ -21,6 +20,5 @@
 
       <% end %>
     </div>
-  </div>
 
 </div>
