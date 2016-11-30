@@ -1,5 +1,5 @@
-#
-#
+# #
+# #
 # Cohort.delete_all
 # Student.delete_all
 # Pitch.delete_all
@@ -50,19 +50,20 @@
 #
 #
 #   Student.all.each do |student|
-#     Vote.create(pitch_id: Pitch.all[rand(0..11)].id, student_id: student.id)
-#     Vote.create(pitch_id: Pitch.all[rand(0..11)].id, student_id: student.id)
-#     Vote.create(pitch_id: Pitch.all[rand(0..11)].id, student_id: student.id)
-#     Vote.create(pitch_id: Pitch.all[rand(0..11)].id, student_id: student.id)
-#     Vote.create(pitch_id: Pitch.all[rand(0..11)].id, student_id: student.id)
+#     ids = (1..11).to_a.shuffle
+#     Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+#     Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+#     Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+#     Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+#     Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
 #   end
-#
-#
-#
+
 #
 
+#
+#
 # ranking
-
+#
 final_ideas = Cohort.last.pitches.in_second_round
 Student.all.each do |student|
   rank = (1..final_ideas.length).to_a.shuffle

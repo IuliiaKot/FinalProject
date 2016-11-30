@@ -27,12 +27,9 @@ class RanksController < ApplicationController
   def split_students_by_teams
     students = Cohort.last.students
     final_pitches = Pitch.in_second_round
-    team1,team2, team3 = [],[],[]
     # Student.all.joins(ranks: :pitch).merge(Pitch.where(id:pitch[0])).merge(Rank.where(rank: 1))
-
-    res = final_pitches.map do |pitch|
+    final_pitches.map do |pitch|
       {student: Student.find_student_for_team(pitch.id, pitch.ranks.group('rank').order('count(rank) DESC')[0].rank), pitch: pitch.title}
-    end
-    res.sort_by {|team| -team[:student].count}
+    end.sort_by {|team| -team[:student].count}
   end
 end
