@@ -18,6 +18,7 @@ class PitchesController < ApplicationController
   def create
     @pitch = current_user.pitches.new(pitch_params)
     if @pitch.save
+      flash[:notice] = 'Pitch was successfully created'
       redirect_to pitches_path
     else
       @errors = @pitch.errors.full_messages

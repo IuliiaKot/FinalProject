@@ -1,17 +1,23 @@
 <div class="container">
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert">
+      <p><%= flash[:notice]%></p>
+    </div>
+  <% end %>
+
     <% if @pitches.empty? %>
       <p>You don't have any pitches yet.</p>
     <% end %>
-      <% @pitches.each do |pitch| %>
-        <div class="card">
-          <h4 class="card-header"><%= pitch.title %></h4>
-          <div class="card-block">
-            <p class="card-text"><%= pitch.description %></p>
-            <%= link_to 'Edit', edit_pitch_path(pitch), class: 'btn btn-primary'%>
-            <%= link_to 'Delete', pitch_path(pitch), method: 'delete', class: 'btn btn-primary'%>
-          </div>
+    <% @pitches.each do |pitch| %>
+      <div class="card">
+        <h4 class="card-header"><%= pitch.title %></h4>
+        <div class="card-block">
+          <p class="card-text"><%= pitch.description %></p>
+          <%= link_to 'Edit', edit_pitch_path(pitch), class: 'btn btn-primary'%>
+          <%= link_to 'Delete', pitch_path(pitch), method: 'delete', class: 'btn btn-primary'%>
         </div>
-      <% end %>
+      </div>
+    <% end %>
 
 
         <% if current_user.type == 'Student' %>
