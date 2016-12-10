@@ -16,6 +16,7 @@ gem 'better_errors'
 
 gem 'figaro'
 gem 'roo'
+gem 'faker'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
