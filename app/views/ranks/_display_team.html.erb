@@ -4,7 +4,7 @@
             <div class="">
               <span><%= teams[idx][:pitch]%></span>
             </div>
-          <div id="team<%=idx+1%>">
+          <div id="team<%=idx+1%>" class='col-md-6'>
             <% teams[idx][:student].each do |student|%>
               <span class='student'><%= student.first_name %></span>
             <% end %>

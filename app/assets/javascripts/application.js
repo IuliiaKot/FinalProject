@@ -35,6 +35,9 @@ $(document).ready(function(){
   let box1 = document.getElementById('team1');
   let box2 = document.getElementById('team2');
   let box3 = document.getElementById('team3');
+  let box4 = document.getElementById('team4');
+  let box5 = document.getElementById('team5');
+  let box6 = document.getElementById('team6');
   let allstudents = document.getElementsByClassName('student');
-  dragula([box1, box2, box3]);
+  dragula([box1, box2, box3, box4, box5, box6]);
 });
