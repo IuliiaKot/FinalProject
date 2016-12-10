@@ -2,30 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#div, #div2, #div3, #div4 {
-  // float: left;
-  //  width: 100px;
-   height: 375px;
-  //  margin: 10px;
-  //  padding: 10px;
-   border: 1px solid black;
-}
-
 
 .line-pitch {
-  color: green;
+  color: #983334;
 
 }
 
-
-.team{
-  // width: 50%;
-  // height: 50%;
-  border: solid 1px black;
-}
 
 #team1, #team2, #team3, #team4, #team5, #team6 {
-  // width: 50px;
+  // width: 550px;
   min-height: 30px;
-  border: solid 1px red;
+  height: auto;
+  // border: solid 1px red;
 }

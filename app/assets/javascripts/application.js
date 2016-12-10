@@ -39,5 +39,15 @@ $(document).ready(function(){
   let box5 = document.getElementById('team5');
   let box6 = document.getElementById('team6');
   let allstudents = document.getElementsByClassName('student');
-  dragula([box1, box2, box3, box4, box5, box6]);
+  dragula([box1, box2, box3, box4, box5, box6],  {
+  revertOnSpill: true
+});
+
+
+
+
+  function drop(event) {
+    console.log('test');
+  }
+
 });

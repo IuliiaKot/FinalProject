@@ -17,4 +17,9 @@ class Student < User
     all.joins(ranks: :pitch).merge(Pitch.where(id:pitch_id)).merge(Rank.where(rank: 1))
   end
 
+  def author?(pitch)
+    # debugger
+    self.ranks.order('rank ASC').first.pitch == Pitch.find_by(title: pitch) && self.ranks.order('rank ASC').first.pitch.student == self
+  end
+
 end

@@ -4,34 +4,6 @@
     <% if @notice %>
       <span><%= @notice%></span>
     <% else %>
-
-    <% @students.each do |student| %>
-      <div class="col-md-3 col-xs-12">
-          <ul class="list-group">
-            <li class='list-group-item'><b><%= student.full_name%></b>
-              <% if student.ranks.order('rank ASC').first && student.ranks.order('rank ASC').first.pitch.student.id == student.id %>
-                (<%= student.ranks.order('rank ASC').first.pitch.title%>)
-              <%end%>
-            </li>
-            <% student.ranks.order('rank ASC').each do |rank|%>
-
-              <% if rank.rank == 1 %>
-                <li class='list-group-item'><span style='color: #5cb85c'><%= rank.rank%>. <%= rank.pitch.title%></span></li>
-              <% elsif rank.rank == 2 %>
-                <li class='list-group-item '><span style='color: #5BC0DE'><%= rank.rank%>. <%= rank.pitch.title%></span></li>
-              <% elsif rank.rank == 3 %>
-                <li class='list-group-item '><span style='color: #F0AD4E'><%= rank.rank%>. <%= rank.pitch.title%></span></li>
-              <% else %>
-                <li class='list-group-item '><span><%= rank.rank%>. <%= rank.pitch.title%></span></li>
-              <%end%>
-
-            <% end %>
-          </ul>
-      </div>
+      <%= render partial: 'display_team', locals: {teams: @teams}%>
     <% end %>
-    <%end%>
-    </div>
-  </div>
-
-
-  <%= render partial: 'display_team', locals: {teams: @teams}%>
+</div>  

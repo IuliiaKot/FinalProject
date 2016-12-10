@@ -3,14 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .team {
-  height: 120px;
+  height: auto;
   padding-top: 10px;
+  border: solid 1px black;
 }
 
 .student {
-  border: solid 1px black;
+  // border: solid 1px black;
   border-radius: 6px;
-  padding: 5px;
-  margin-left: 4px;
   cursor: move;
+
+  ol li:first-child {
+    font-weight: bolder;
+    // margin-left: -20px;
+  }
+
+
+}
+
+.student-name {
+  font-weight: bolder;
 }
