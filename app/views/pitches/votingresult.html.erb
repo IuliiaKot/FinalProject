@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="message-warning">
+
+  </div>
   <% if @notice %>
     <span><%= @notice %> <%= link_to "here", teachers_settings_path%></span>
   <% else %>
@@ -32,6 +35,7 @@
               <% else %>
                 <span class="rank rank-green tag tag-default tag-pill pull-xs-right"><%= pitch.votes.count%></span>
               <% end %>
+              <span class="pull-xs-right">(<%= pitch.student.first_name%>)</span>
           </div>
           <!-- <div class="card-block">
             <blockquote class="card-blockquote">

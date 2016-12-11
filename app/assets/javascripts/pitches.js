@@ -14,11 +14,17 @@ $(document).ready(function() {
       method: 'post'
     })
       .done(function(response){
-        if (response.message){
-          $('.container').prepend(
-          `<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`)
+        if (response.warning){
+          $('.message-warning').prepend(
+          `<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.warning}</div>`)
           $(element).prop("checked", false);
-        }
+        };
+
+        if (response.message){
+          $('.message-warning').prepend(
+          `<div class='alert alert-success alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`)
+        };
+
         if (response.delete) {
           $(element).prop("checked", false);
         }

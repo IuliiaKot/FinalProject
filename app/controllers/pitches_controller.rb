@@ -51,6 +51,9 @@ class PitchesController < ApplicationController
     end
   end
 
+
+# teacher choose projects for second round
+
   def rank
     cohort = Cohort.last
     pitch = Pitch.find_by(id: params[:pitch_id])
@@ -59,10 +62,10 @@ class PitchesController < ApplicationController
       render :json => {}
     else
       if (cohort.pitches.in_second_round.count >= cohort.setting.number_in_second_round)
-        render :json => {message: "Number of pitches in second round should be #{cohort.setting.number_in_second_round}"}
+        render :json => {warning: "Number of pitches in second round should be #{cohort.setting.number_in_second_round}"}
       else
         pitch.update(final: true)
-        render :json => {count: Cohort.last.pitches.in_second_round.count}
+        render :json => {count: Cohort.last.pitches.in_second_round.count, message: "Project ${pitch.title} was successfully added"}
       end
     end
   end
