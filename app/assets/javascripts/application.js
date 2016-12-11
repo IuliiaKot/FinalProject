@@ -40,14 +40,9 @@ $(document).ready(function(){
   let box6 = document.getElementById('team6');
   let allstudents = document.getElementsByClassName('student');
   dragula([box1, box2, box3, box4, box5, box6],  {
-  revertOnSpill: true
-});
-
-
-
-
-  function drop(event) {
-    console.log('test');
-  }
-
+    revertOnSpill: true
+  }).on('drop', function(el){
+      console.log(el);
+      debugger;
+  });
 });
