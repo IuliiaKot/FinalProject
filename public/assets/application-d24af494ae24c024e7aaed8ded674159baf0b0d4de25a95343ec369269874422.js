@@ -15647,15 +15647,14 @@ $(document).ready(function() {
 
         if (response.warning){
           $('.message-warning').prepend(
-          `<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.warning}</div>`)
+          `<div class='alert alert-warning alert-dismissible fade' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.warning}</div>`)
           $(element).prop("checked", false);
         };
-
         if (response.message){
           $('.message-warning').prepend(
-          `<div class='alert alert-success alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`)
+          `<div class='alert alert-success alert-dismissible fade' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`)
         };
-
+        $(".alert").delay(200).addClass("in").fadeOut(3500);
         if (response.delete) {
           $(element).prop("checked", false);
         }
@@ -15666,6 +15665,7 @@ $(document).ready(function(){
   $('.rank-project').on('change',function(e){
     var id = $(e.target).parent().attr('value');
     var url = '/pitches/' + id + '/setrank';
+    var element = $(e.target);
     $.ajax({
       method: 'post',
       url: url,
@@ -15676,6 +15676,8 @@ $(document).ready(function(){
           if (response.message) {
             $('.container').prepend(
             `<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`);
+            $(element).val('');
+            $(".alert").delay(200).addClass("in").fadeOut(3500);
           }
         }
       });
@@ -15743,6 +15745,7 @@ $(document).ready(function(){
     trigger: 'focus'
   });
 
+
   let box1 = document.getElementById('team1');
   let box2 = document.getElementById('team2');
   let box3 = document.getElementById('team3');
@@ -15754,6 +15757,5 @@ $(document).ready(function(){
     revertOnSpill: true
   }).on('drop', function(el){
       console.log(el);
-      debugger;
   });
 });
