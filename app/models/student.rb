@@ -23,8 +23,13 @@ class Student < User
   end
 
 
-  def find_rank_if_exist(pitch)
-    self.ranks.find_by(pitch_id: pitch.id)
+  def find_rank_if_exist(pitch, input_rank)
+    # debugger
+    if self.ranks.find_by(pitch_id: pitch.id)
+      return self.ranks.find_by(pitch_id: pitch.id).rank == input_rank
+    else
+      return false
+    end
   end
 
 end

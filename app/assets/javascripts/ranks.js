@@ -10,13 +10,18 @@ $(document).ready(function(){
     })
       .done(function(response){
         if (response) {
-          if (response.message) {
-            $('.container').prepend(
-            `<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`);
+          if (response.warning) {
+            $('.message-warning').prepend(
+            `<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.warning}</div>`);
             $(element).val('');
-            $(".alert").delay(200).addClass("in").fadeOut(3500);
           }
-        }
+          if (response.message){
+            $('.message-warning').prepend(
+            `<div class='alert alert-success alert-dismissible fade' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`)
+          };
+        $(".alert").delay(200).addClass("in").fadeOut(3500);
+        };
+
       });
   });
 });

@@ -4,9 +4,10 @@ class RanksController < ApplicationController
     pitch = Pitch.find_by(id: params[:pitch_id])
     rank_with_already_exist = current_user.ranks.any? { |rank| rank.rank == params[:rank].to_i }
     if rank_with_already_exist
-      render :json => {message: "You alredy used #{params[:rank]} for #{current_user.ranks.find_by(rank: params[:rank]).pitch.title}"}
+      render :json => {warning: "You alredy used #{params[:rank]} for #{current_user.ranks.find_by(rank: params[:rank]).pitch.title}."}
     else
       pitch.ranks.create(rank: params[:rank], student_id: current_user.id)
+      render :json => {message: "You successfully ranked #{pitch.title} project."}
     end
   end
 

@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="message-warning">
+
+  </div>
     <div class="row">
       <% if @errors[:notice] %>
         <h5 class='text-center'><%= @errors[:notice].last %></h5>
@@ -10,11 +13,11 @@
               <%= pitch.title %>
               <select class="rank-project custom-select" name="ranks" id='ranks'>
                 <option value=""></option>
-                <% @pitches.each_with_index do |idx_pitch, idx|%>
-                  <% if current_user.find_rank_if_exist(pitch) %>
-                    <option value="<%= pitch.id%>" selected="selected"><%=  current_user.find_rank_if_exist(pitch).rank %></option>
+                <% @pitches.count.times do |idx|%>
+                  <% if current_user.find_rank_if_exist(pitch, idx + 1) %>
+                    <option value="<%=pitch.id%>" selected="selected"><%=  idx+1 %></option>>
                   <% else %>
-                    <option value="<%= idx_pitch.id%>"><%=  idx+1 %></option>
+                    <option value="<%=pitch.id%>"><%=  idx+1 %></option>
                   <% end %>
                 <% end %>
               </select>
