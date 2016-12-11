@@ -15634,64 +15634,53 @@ var Popover = function ($) {
 //
 
 
-// studetn voting in firts round
-$(document).ready(function(){
-  //
+// teacher choose projects for second round
+$(document).ready(function() {
   $('.choose-idea').click('on',function(e){
-    //
-    console.log('I am here')
     var url = $(e.target).parent().find('input').attr('value');
     var element = $(e.target).parent().find('input');
-    //
     $.ajax({
       url:url,
       method: 'post'
     })
       .done(function(response){
 
-        if (response.message){
-          alert(response.message)
+        if (response.warning){
+          $('.message-warning').prepend(
+          `<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.warning}</div>`)
           $(element).prop("checked", false);
-        }
+        };
+
+        if (response.message){
+          $('.message-warning').prepend(
+          `<div class='alert alert-success alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`)
+        };
+
         if (response.delete) {
           $(element).prop("checked", false);
         }
-        // if (response.count > 3) {
-        //   var inputs = $('.choose-idea')
-        //   for(var i = 0; i < inputs.length; i++){
-        //       $(inputs[i]).attr('disabled', true)
-        //   }
-        // }
-        console.log("hello")
-      })
-  })
-})
-;
+      });
+  });
+});
 $(document).ready(function(){
   $('.rank-project').on('change',function(e){
-    console.log('1');
-    // var id = $('.rank-project option:selected').attr('value')
-    // var id = $(e.target).find(':selected').attr('value')
     var id = $(e.target).parent().attr('value');
-    var url = '/pitches/' + id + '/setrank'
+    var url = '/pitches/' + id + '/setrank';
     $.ajax({
       method: 'post',
       url: url,
-      data: {rank: $(e.target).find(':selected').text()}
+      data: {rank: $(e.target).find(':selected').text() }
     })
       .done(function(response){
-        // debugger
         if (response) {
-          if (response.message){
-            alert(response.message)
+          if (response.message) {
+            $('.container').prepend(
+            `<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`);
           }
         }
-      })
-    // $('#select_tag_id option:selected').text()
-  })
-
-})
-;
+      });
+  });
+});
 (function() {
 
 
@@ -15748,10 +15737,23 @@ $(document).ready(function(){
     })
       .done(function(response){
 
-      })
-  })
+      });
+  });
   $('.popover-dismiss').popover({
     trigger: 'focus'
-  })
-})
-;
+  });
+
+  let box1 = document.getElementById('team1');
+  let box2 = document.getElementById('team2');
+  let box3 = document.getElementById('team3');
+  let box4 = document.getElementById('team4');
+  let box5 = document.getElementById('team5');
+  let box6 = document.getElementById('team6');
+  let allstudents = document.getElementsByClassName('student');
+  dragula([box1, box2, box3, box4, box5, box6],  {
+    revertOnSpill: true
+  }).on('drop', function(el){
+      console.log(el);
+      debugger;
+  });
+});
