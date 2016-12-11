@@ -65,7 +65,7 @@ class PitchesController < ApplicationController
         render :json => {warning: "Number of pitches in second round should be #{cohort.setting.number_in_second_round}"}
       else
         pitch.update(final: true)
-        render :json => {count: Cohort.last.pitches.in_second_round.count, message: "Project ${pitch.title} was successfully added"}
+        render :json => {count: Cohort.last.pitches.in_second_round.count, message: "Project #{pitch.title} was successfully added"}
       end
     end
   end

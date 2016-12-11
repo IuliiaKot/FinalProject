@@ -32,7 +32,7 @@
 #   student_pitches = Cohort.last.students
 #   student_pitches.each do |student|
 #     Cohort.last.setting.pitches_per_student.times do
-#       student.pitches.create!(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.paragraph(1))
+#       student.pitches.create!(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.paragraph(5))
 #     end
 #   end
 #

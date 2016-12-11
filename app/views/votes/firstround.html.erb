@@ -6,12 +6,19 @@
         <div class='col-md-4 col-xs-12'>
           <div class="card" id='accordion'>
             <div class="card-header">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= pitch.id%>"><%= pitch.title %></a>
               <% if current_user.type == 'Student' %>
                 <% if current_user.upvoted?(pitch) %>
-                  <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote" checked="true">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input choose-idea" value="/pitches/<%= pitch.id %>/vote" checked="true">
+                    <span class="custom-control-indicator"></span>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= pitch.id%>"><%= pitch.title %></a>
+                  </label>
                 <% else %>
-                  <input type="checkbox" class="choose-idea" value="/pitches/<%= pitch.id %>/vote">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input choose-idea" value="/pitches/<%= pitch.id %>/vote">
+                    <span class="custom-control-indicator"></span>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= pitch.id%>"><%= pitch.title %></a>
+                  </label>
                 <% end %>
               <% end %>
               <% if current_user.type == 'Teacher' %>
