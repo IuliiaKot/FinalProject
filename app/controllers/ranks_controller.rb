@@ -1,11 +1,10 @@
 class RanksController < ApplicationController
 
   def setrank
-    #
     pitch = Pitch.find_by(id: params[:pitch_id])
-    find_rank = current_user.ranks.any? { |rank| rank.rank == params[:rank].to_i }
-    if find_rank
-      render :json => {message: "You alredy used #{params[:rank]} for #{pitch.title}"}
+    rank_with_already_exist = current_user.ranks.any? { |rank| rank.rank == params[:rank].to_i }
+    if rank_with_already_exist
+      render :json => {message: "You alredy used #{params[:rank]} for #{current_user.ranks.find_by(rank: params[:rank]).pitch.title}"}
     else
       pitch.ranks.create(rank: params[:rank], student_id: current_user.id)
     end
