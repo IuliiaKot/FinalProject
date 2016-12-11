@@ -32,6 +32,7 @@ $(document).ready(function(){
     trigger: 'focus'
   });
 
+
   let box1 = document.getElementById('team1');
   let box2 = document.getElementById('team2');
   let box3 = document.getElementById('team3');
@@ -43,6 +44,5 @@ $(document).ready(function(){
     revertOnSpill: true
   }).on('drop', function(el){
       console.log(el);
-      debugger;
   });
 });

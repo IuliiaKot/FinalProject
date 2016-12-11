@@ -8,7 +8,16 @@
           <div class="card">
             <div class="card-header" value='<%= pitch.id%>'>
               <%= pitch.title %>
-              <%= select_tag(:ranks, options_for_select(@pitches.map.with_index {|pitch, idx| [idx+1, pitch.id]}.unshift(['','']) ),  {:class => 'rank-project custom-select'}) %>
+              <select class="rank-project custom-select" name="ranks" id='ranks'>
+                <option value=""></option>
+                <% @pitches.each_with_index do |idx_pitch, idx|%>
+                  <% if current_user.find_rank_if_exist(pitch) %>
+                    <option value="<%= pitch.id%>" selected="selected"><%=  current_user.find_rank_if_exist(pitch).rank %></option>
+                  <% else %>
+                    <option value="<%= idx_pitch.id%>"><%=  idx+1 %></option>
+                  <% end %>
+                <% end %>
+              </select>
             </div>
             <div class="card-block">
               <blockquote class="card-blockquote">

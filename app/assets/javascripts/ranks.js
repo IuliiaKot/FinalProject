@@ -2,6 +2,7 @@ $(document).ready(function(){
   $('.rank-project').on('change',function(e){
     var id = $(e.target).parent().attr('value');
     var url = '/pitches/' + id + '/setrank';
+    var element = $(e.target);
     $.ajax({
       method: 'post',
       url: url,
@@ -12,6 +13,7 @@ $(document).ready(function(){
           if (response.message) {
             $('.container').prepend(
             `<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`);
+            $(element).val('');
           }
         }
       });

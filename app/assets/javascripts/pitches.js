@@ -17,15 +17,14 @@ $(document).ready(function() {
 
         if (response.warning){
           $('.message-warning').prepend(
-          `<div class='alert alert-warning alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.warning}</div>`)
+          `<div class='alert alert-warning alert-dismissible fade' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.warning}</div>`)
           $(element).prop("checked", false);
         };
-
         if (response.message){
           $('.message-warning').prepend(
-          `<div class='alert alert-success alert-dismissible fade in' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`)
+          `<div class='alert alert-success alert-dismissible fade' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`)
         };
-
+        $(".alert").delay(200).addClass("in").fadeOut(3500);
         if (response.delete) {
           $(element).prop("checked", false);
         }

@@ -22,4 +22,9 @@ class Student < User
     self.ranks.order('rank ASC').first.pitch == Pitch.find_by(title: pitch) && self.ranks.order('rank ASC').first.pitch.student == self
   end
 
+
+  def find_rank_if_exist(pitch)
+    self.ranks.find_by(pitch_id: pitch.id)
+  end
+
 end

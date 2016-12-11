@@ -29,6 +29,8 @@ class PitchesController < ApplicationController
   def edit
   end
 
+
+
   def update
     if @pitch.update(pitch_params)
       redirect_to pitches_path
