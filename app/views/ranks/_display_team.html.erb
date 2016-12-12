@@ -1,6 +1,9 @@
 <div class="container">
     <% Cohort.last.setting.number_in_second_round.times do |idx| %>
         <div class="col-md-6 team" >
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
             <div class="">
               <span style="font-weight: bolder; font-size: 24px;"><%= teams[idx][:pitch]%></span>
             </div>

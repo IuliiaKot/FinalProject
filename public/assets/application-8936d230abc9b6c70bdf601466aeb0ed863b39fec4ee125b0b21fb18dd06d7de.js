@@ -15738,6 +15738,12 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
+
+  $('.close').on('click', function(e){
+    e.preventDefault();
+    $(this).parent().remove();
+  })
+
   $('.rank').click('on', function(e){
     var url = $(e.target).parent().find('input').attr('value');
     $.ajax({
