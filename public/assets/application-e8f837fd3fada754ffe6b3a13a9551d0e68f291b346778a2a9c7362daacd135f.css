@@ -4,16 +4,16 @@
 }
 /* line 6, /Users/Julia/Documents/DBC_teacher/nyc-salamandrs-2016/FinalProject/app/assets/stylesheets/ranks.scss */
 .line-pitch {
-  color: #983334;
+  border: solid 3px #983334;
 }
 
-/* line 12, /Users/Julia/Documents/DBC_teacher/nyc-salamandrs-2016/FinalProject/app/assets/stylesheets/ranks.scss */
+/* line 13, /Users/Julia/Documents/DBC_teacher/nyc-salamandrs-2016/FinalProject/app/assets/stylesheets/ranks.scss */
 #team1, #team2, #team3, #team4, #team5, #team6 {
   min-height: 30px;
   height: auto;
 }
 
-/* line 20, /Users/Julia/Documents/DBC_teacher/nyc-salamandrs-2016/FinalProject/app/assets/stylesheets/ranks.scss */
+/* line 21, /Users/Julia/Documents/DBC_teacher/nyc-salamandrs-2016/FinalProject/app/assets/stylesheets/ranks.scss */
 #div1, #div2 {
   float: left;
   width: 200px;

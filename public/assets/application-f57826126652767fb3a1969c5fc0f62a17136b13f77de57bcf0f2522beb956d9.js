@@ -15763,6 +15763,13 @@ $(document).ready(function(){
   dragula([box1, box2, box3, box4, box5, box6],  {
     revertOnSpill: true
   }).on('drop', function(el){
-      console.log(el);
+      var olParent = $(el).parent().attr('name');
+      var olChield = $(el).attr('name');
+      debugger
+      if (olChield!== '' && olChield.includes(olParent)){
+        $(el).addClass('line-pitch');
+      } else {
+        $(el).removeClass('line-pitch');
+      }
   });
 });

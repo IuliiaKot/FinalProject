@@ -4,12 +4,12 @@
             <div class="">
               <span style="font-weight: bolder; font-size: 24px;"><%= teams[idx][:pitch]%></span>
             </div>
-          <div id="team<%=idx+1%>" >
+          <div id="team<%=idx+1%>" name='<%= teams[idx][:pitch] %>'>
             <% teams[idx][:student].each do |student|%>
                     <% if student.author?(teams[idx][:pitch]) %>
-                        <ol class='student breadcrumb line-pitch' style="border-top: solid 5px #983334; background: #454545;">
+                        <ol class='student line-pitch breadcrumb' name='<%= student.pitches.where(final: true).map {|pitch| pitch.title}%>'>
                     <% else %>
-                        <ol class='student breadcrumb'  id="no-drop" class="draggable drag-drop">
+                        <ol class='student breadcrumb'  id="no-drop" class="draggable drag-drop" name='<%= student.pitches.where(final: true).map {|pitch| pitch.title}.join(' ')%>'>
                     <% end %>
                     <li class='breadcrumb-item student-name'><%=student.first_name%></li>
                     <% student.ranks.order('rank ASC').each do |rank|%>
