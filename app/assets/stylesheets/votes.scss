@@ -9,3 +9,37 @@
   width: 80%;
   opacity: 0.9;
 }
+
+
+.student-message{
+  position: fixed;
+  z-index: 1;
+  width: 8%;
+  height: 11%;
+  background: #7BBB7B;
+  opacity: 0.6;
+  text-align: center;
+  margin: 4px;
+  padding: 3px 3px 5px 3px;
+  right: 6px;
+  border-radius: 4px;
+  color: black;
+}
+
+
+@media  screen and (max-width: 480px) {
+  .student-message{
+    position: fixed;
+    z-index: 1;
+    width: 22%;
+    height: 14%;
+    background: #7BBB7B;
+    opacity: 0.6;
+    text-align: center;
+    margin: 4px;
+    padding: 4px 5px 5px 7px;
+    right: 6px;
+    border-radius: 4px;
+    color: black;
+  }
+}
