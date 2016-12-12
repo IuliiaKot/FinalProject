@@ -17,27 +17,27 @@
 
 
 
-$(document).ready(function(){
+$(document).ready(function() {
 
-  $('.close').on('click', function(e){
+  $('.close').on('click', function(e) {
     e.preventDefault();
     $(this).parent().remove();
-  })
+  });
 
-  $('.rank').click('on', function(e){
+  $('.rank').click('on', function(e) {
     var url = $(e.target).parent().find('input').attr('value');
     $.ajax({
-      url:url,
+      url: url,
       method: 'post'
     })
-      .done(function(response){
+      .done(function(response) {
 
       });
   });
+
   $('.popover-dismiss').popover({
     trigger: 'focus'
   });
-
 
   let box1 = document.getElementById('team1');
   let box2 = document.getElementById('team2');
@@ -48,14 +48,13 @@ $(document).ready(function(){
   let allstudents = document.getElementsByClassName('student');
   dragula([box1, box2, box3, box4, box5, box6],  {
     revertOnSpill: true
-  }).on('drop', function(el){
+  }).on('drop', function(el) {
       var olParent = $(el).parent().attr('name');
       var olChield = $(el).attr('name');
-      debugger
-      if (olChield!== '' && olChield.includes(olParent)){
+      if (olChield !== '' && olChield.includes(olParent)) {
         $(el).addClass('line-pitch');
       } else {
         $(el).removeClass('line-pitch');
       }
-  });
+    });
 });
