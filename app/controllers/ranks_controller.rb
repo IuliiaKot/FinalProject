@@ -29,6 +29,7 @@ class RanksController < ApplicationController
     students = Cohort.last.students
     final_pitches = Pitch.in_second_round
     # Student.all.joins(ranks: :pitch).merge(Pitch.where(id:pitch[0])).merge(Rank.where(rank: 1))
+    return [] unless final_pitches.empty?
     final_pitches.map do |pitch|
       {student: Student.find_student_for_team(pitch.id, pitch.ranks.group('rank').order('count(rank) DESC')[0].rank), pitch: pitch.title}
     end.sort_by {|team| -team[:student].count}

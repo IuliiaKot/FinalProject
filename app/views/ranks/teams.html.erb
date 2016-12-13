@@ -5,6 +5,10 @@
     <% if @notice %>
       <span><%= @notice%></span>
     <% else %>
-      <%= render partial: 'display_team', locals: {teams: @teams}%>
+      <%if !@teams.empty?%>
+        <%= render partial: 'display_team', locals: {teams: @teams}%>
+      <%else%>
+        <span>Students still voting. </span>
+      <% end %>
     <% end %>
 </div>
