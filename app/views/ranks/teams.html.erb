@@ -1,4 +1,5 @@
 <div class="container">
+  <span>Final numbers of teams: <strong><%= Cohort.last.setting.number_of_teams%></strong></span>
 
   <div class="row">
     <% if @notice %>
@@ -6,4 +7,4 @@
     <% else %>
       <%= render partial: 'display_team', locals: {teams: @teams}%>
     <% end %>
-</div>  
+</div>

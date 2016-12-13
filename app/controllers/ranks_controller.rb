@@ -13,6 +13,7 @@ class RanksController < ApplicationController
 
   def teams
     setting = Setting.where(active: true)
+    @team = Team.new()
     @teams = split_students_by_teams
     # debugger
     @students = Cohort.last.students

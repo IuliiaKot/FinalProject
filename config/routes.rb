@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   root 'static_page#index'
   get '/home' => 'home#index'
   get '/home/cohorts/:id' => 'home#cohort_projects'
+  post '/teams' => 'teams#create'
 
   # get '/students/:id/profile' => 'students#profile'
   # put '/students/:id/profile' => 'students#update'

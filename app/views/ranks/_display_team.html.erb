@@ -1,34 +1,41 @@
 <div class="container">
     <% Cohort.last.setting.number_in_second_round.times do |idx| %>
-        <div class="col-md-6 team" >
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-            <div class="">
-              <span style="font-weight: bolder; font-size: 24px;"><%= teams[idx][:pitch]%></span>
+        <%= form_for @team do |f| %>
+          <div class="col-md-6 team" >
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+
+            <input type="submit" name="" value="Create" class="create btn btn-info btn-sm">
+              <div class="">
+                <span style="font-weight: bolder; font-size: 24px;"><%= teams[idx][:pitch]%></span>
+                <input type="hidden" name="team[title]" value="<%= teams[idx][:pitch]%>">
+              </div>
+            <div id="team<%=idx+1%>" name='<%= teams[idx][:pitch] %>'>
+              <% teams[idx][:student].each_with_index do |student, idx|%>
+                      <% if student.author?(teams[idx][:pitch]) %>
+                          <ol class='student line-pitch breadcrumb' name='<%= student.pitches.where(final: true).map {|pitch| pitch.title}%>'>
+                      <% else %>
+                          <ol class='student breadcrumb'  id="no-drop" class="draggable drag-drop" name='<%= student.pitches.where(final: true).map {|pitch| pitch.title}.join(' ')%>'>
+                      <% end %>
+                      <input type="hidden" name='[team]student[<%=idx%>][student_id]' value="<%= student.id%>">
+                      <li class='breadcrumb-item student-name'><%=student.first_name%></li>
+
+                      <% student.ranks.order('rank ASC').each do |rank|%>
+                          <% if rank.rank == 1 %>
+                            <li class='breadcrumb-item' style='color: #5cb85c'><%= rank.pitch.title%></li>
+                          <% elsif rank.rank == 2 %>
+                            <li class='breadcrumb-item' style='color: #5BC0DE'><%= rank.pitch.title%></li>
+                          <% elsif rank.rank == 3 %>
+                            <li class='breadcrumb-item' style='color: #F0AD4E'><%= rank.pitch.title%></li>
+                          <% else %>
+                            <li class='breadcrumb-item'><%= rank.pitch.title%></li>
+                          <% end %>
+                      <% end %>
+                    </ol>
+              <% end %>
             </div>
-          <div id="team<%=idx+1%>" name='<%= teams[idx][:pitch] %>'>
-            <% teams[idx][:student].each do |student|%>
-                    <% if student.author?(teams[idx][:pitch]) %>
-                        <ol class='student line-pitch breadcrumb' name='<%= student.pitches.where(final: true).map {|pitch| pitch.title}%>'>
-                    <% else %>
-                        <ol class='student breadcrumb'  id="no-drop" class="draggable drag-drop" name='<%= student.pitches.where(final: true).map {|pitch| pitch.title}.join(' ')%>'>
-                    <% end %>
-                    <li class='breadcrumb-item student-name'><%=student.first_name%></li>
-                    <% student.ranks.order('rank ASC').each do |rank|%>
-                        <% if rank.rank == 1 %>
-                          <li class='breadcrumb-item' style='color: #5cb85c'><%= rank.pitch.title%></li>
-                        <% elsif rank.rank == 2 %>
-                          <li class='breadcrumb-item' style='color: #5BC0DE'><%= rank.pitch.title%></li>
-                        <% elsif rank.rank == 3 %>
-                          <li class='breadcrumb-item' style='color: #F0AD4E'><%= rank.pitch.title%></li>
-                        <% else %>
-                          <li class='breadcrumb-item'><%= rank.pitch.title%></li>
-                        <% end %>
-                    <% end %>
-                  </ol>
-            <% end %>
           </div>
-        </div>
+        <% end %>
     <% end %>
 </div

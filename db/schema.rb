@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121180011) do
+ActiveRecord::Schema.define(version: 20161213173707) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "name",       null: false
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20161121180011) do
     t.boolean  "active_first_round",       default: false
     t.boolean  "active_second_round",      default: false
     t.index ["cohort_id"], name: "index_settings_on_cohort_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.integer  "pitch_id",   null: false
+    t.integer  "lead_id",    null: false
+    t.integer  "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
