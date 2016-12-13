@@ -4,6 +4,6 @@ class User < ApplicationRecord
 
 
   def active_first_round?
-    self.cohort.setting.active_first_round
+    self.cohort.setting.active
   end
 end

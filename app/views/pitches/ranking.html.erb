@@ -1,4 +1,5 @@
 <div class="container">
+<% if current_user.active_first_round? %>
   <div class="message-warning">
 
   </div>
@@ -32,5 +33,12 @@
 
       <% end %>
     </div>
+    <% else %>
+      <div class="">
+        <p>
+        The first round not opened yet, please wait for teacher action.
+        </p>
+      </div>
+    <% end %>
 
 </div>

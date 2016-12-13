@@ -1,12 +1,12 @@
 <div class="container">
+  <% if current_user.active_first_round? %>
     <div class="student-message">
         <span>You choosed <strong class='current-votes'><%= current_user.votes.count%></strong><strong> from <%= current_user.cohort.setting.student_vote_first_round %> </strong>projects</span>
     </div>
+    <div class="message-warning">
 
-  <div class="message-warning">
+    </div>
 
-  </div>
-  <% if current_user.active_first_round? %>
 
     <div class="row" >
       <% @pitches.each do |pitch| %>
