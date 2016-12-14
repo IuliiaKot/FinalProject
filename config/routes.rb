@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   # namespace :admin do
   #   resources :teachers, only: [:new, :create]
   # end
+  delete '/students/rank/clear' => 'students#delete'
 
   resources :teachers , except: [:index, :new, :create] do
     collection do

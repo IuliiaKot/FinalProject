@@ -14,7 +14,7 @@
                 <div class="card">
                   <div class="card-header" value='<%= pitch.id%>'>
                     <%= pitch.title %>
-                    <select class="rank-project custom-select" name="ranks" id='ranks'>
+                      <select class="rank-project custom-select" name="ranks" id='ranks'>
                       <option value=""></option>
                       <% @pitches.count.times do |idx|%>
                         <% if current_user.find_rank_if_exist(pitch, idx + 1) %>
@@ -32,8 +32,10 @@
                   </div>
                 </div>
               </div>
-
             <% end %>
+            <div class="clear-result">
+              <%= link_to 'Clear results', students_rank_clear_path, method: 'delete',  class: 'btn btn-primary'%>
+            </div>  
           </div>
           <% else %>
             <div class="">

@@ -23,6 +23,11 @@ class StudentsController < ApplicationController
     @student = Student.find_by(id: params[:id])
   end
 
+  def delete
+    current_user.ranks.delete_all
+    redirect_to '/ranking'
+  end
+
   def update
     @student = Student.find_by(email: params[:student][:email])
     if @student && @student.update_attributes(password: params[:student][:password])
