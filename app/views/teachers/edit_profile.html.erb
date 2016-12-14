@@ -1,0 +1,21 @@
+<div class="container">
+  <%= render partial: '/partial/errors', layout: false, locals: {errors: @errors}%>
+  <%= form_for  @teacher, url: {controller: 'teachers', action: 'update_profile'}, method: :put do |f| %>
+    <%= f.label :first_name%>
+    <%= f.text_field :first_name, class: 'form-control'%>
+
+    <%= f.label :last_name%>
+    <%= f.text_field :last_name, class: 'form-control'%>
+
+    <%= f.label :email%>
+    <%= f.text_field :email, class: 'form-control'%>
+
+    <%= f.label :password%>
+    <%= f.password_field :password, class: 'form-control'%><br>
+
+    <%= f.submit "Update", class: "btn btn-primary" %>
+  <% end %>
+  <br><a href="/home" class="btn btn-primary">Cancel</a>
+
+
+</div>

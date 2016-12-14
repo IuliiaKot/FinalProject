@@ -42,12 +42,16 @@ Rails.application.routes.draw do
   # end
   delete '/students/rank/clear' => 'students#delete'
 
+
+  get  '/teachers/:id/edit' => 'teachers#edit_profile'
+  put  '/teachers/:id/update' => 'teachers#update_profile'
+
   resources :teachers , except: [:index, :new, :create] do
     collection do
       post :create_cohort
       get  :show_cohort_settings
       post :set_cohort_settings
-      get :edit
+      get  :edit
       put :update_cohort_setting
       put :active_first_round
       # put :active_second_round

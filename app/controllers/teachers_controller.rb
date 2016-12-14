@@ -45,6 +45,19 @@ class TeachersController < ApplicationController
     @setting = @cohort.setting
   end
 
+  def edit_profile
+    @teacher = Teacher.find_by(id: params[:id])
+  end
+
+  def update_profile
+    @teacher = Teacher.find_by(email: params[:teacher][:email])
+    if @teacher && @teacher.update_attributes(password: params[:teacher][:password])
+      redirect_to home_path
+    else
+      @errors = @teacher.errors.full_messages
+      render "edit_profile"
+    end
+  end
 
   def update_cohort_setting
     #
