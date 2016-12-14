@@ -26,7 +26,7 @@ class TeamsController < ApplicationController
   def dashboard
     # debugger
     if Team.count > 0
-      @teams = Team.group(:lead_id)
+      @teams = Team.select("teams.id, teams.lead_id, teams.student_id, teams.pitch_id").group(:lead_id)
     else
       @teams = []
     end
