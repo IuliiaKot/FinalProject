@@ -25,7 +25,11 @@ class TeamsController < ApplicationController
 
   def dashboard
     # debugger
-    @teams = Team.group(:lead_id)
+    if Team.count > 0
+      @teams = Team.group(:lead_id)
+    else
+      @teams = []
+    end
   end
 
   private
