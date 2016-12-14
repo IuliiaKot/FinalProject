@@ -5,12 +5,12 @@ Rank.delete_all
 Vote.delete_all
 Setting.delete_all
 Team.delete_all
-Teacher.delete_all
+# Teacher.delete_all
 
 #
 # Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia", last_name: "Kotlenko")
-# Cohort.create(name: 'nyc-bobolinks-2016')
-# Setting.create(cohort_id: Cohort.last.id, pitches_per_student: 4, number_in_second_round: 4,active: true, number_of_teams: 3,student_vote_first_round: 5, active_first_round: false)
+Cohort.create(name: 'test')
+Setting.create(cohort_id: Cohort.last.id, pitches_per_student: 3, number_in_second_round: 4,active: true, number_of_teams: 2,student_vote_first_round: 5, active_first_round: false)
 # students = [
 #   {first_name: "Anna", last_name: "Kvalchuck", email: 'anna@gmail.com', password: '123456'},
 #   {first_name: "Pan", last_name: "Wan", email: 'pan@gmail.com', password: '123456'},
@@ -29,6 +29,7 @@ Teacher.delete_all
 #   students.each do |student|
 #     Cohort.last.students.create(student)
 #   end
+Cohort.last.students.create(first_name: "Julia", last_name: "Kotlenko", email: "kotlenko.julia@gmail.com", password: '123456')
 #
 #   student_pitches = Cohort.last.students
 #   student_pitches.each do |student|
@@ -55,10 +56,10 @@ Teacher.delete_all
 
 # ranking
 #
-final_ideas = Cohort.last.pitches.in_second_round
-Student.all.each do |student|
-  rank = (1..final_ideas.length).to_a.shuffle
-  final_ideas.each do |pitch|
-    pitch.ranks.create(rank: rank.shift, student_id: student.id)
-  end
-end
+# final_ideas = Cohort.last.pitches.in_second_round
+# Student.all.each do |student|
+#   rank = (1..final_ideas.length).to_a.shuffle
+#   final_ideas.each do |pitch|
+#     pitch.ranks.create(rank: rank.shift, student_id: student.id)
+#   end
+# end
