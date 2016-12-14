@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <% @teams.each do |team| %>
+          <div class="col-md-4">
+            <span><%= Pitch.find(team.pitch_id).title%></span>
+            <div class="">
+              <ul>
+                <li><strong><%= Student.find(team.lead_id).full_name%></strong></li>
+                <% Team.where(pitch_id: team.pitch_id).each  do |team_student |%>
+                  <li><%= Student.find(team_student.student_id).full_name%></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+    </div>
+</div>

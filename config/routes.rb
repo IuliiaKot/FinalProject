@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 
   get  '/teachers/:id/edit' => 'teachers#edit_profile'
   put  '/teachers/:id/update' => 'teachers#update_profile'
+  get '/teams/dashboard' => 'teams#dashboard'
 
   resources :teachers , except: [:index, :new, :create] do
     collection do
