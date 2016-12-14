@@ -1,14 +1,8 @@
 <div class="container">
   <%= render partial: '/partial/errors', layout: false, locals: {errors: @errors}%>
   <%= form_for  @student do |f| %>
-    <%= f.label :first_name%>
-    <%= f.text_field :first_name, class: 'form-control'%>
 
-    <%= f.label :last_name%>
-    <%= f.text_field :last_name, class: 'form-control'%>
-
-    <%= f.label :email%>
-    <%= f.text_field :email, class: 'form-control'%>
+    <%= hidden_field_tag :email, @student.email,  class: 'form-control'%>
 
     <%= f.label :password%>
     <%= f.password_field :password, class: 'form-control'%><br>

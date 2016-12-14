@@ -3,9 +3,9 @@ Student.delete_all
 Pitch.delete_all
 Rank.delete_all
 Vote.delete_all
-Teacher.delete_all
 Setting.delete_all
 Team.delete_all
+Teacher.delete_all
 
 #
 # Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia", last_name: "Kotlenko")

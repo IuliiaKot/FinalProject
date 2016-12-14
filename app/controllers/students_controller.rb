@@ -29,7 +29,7 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @student = Student.find_by(email: params[:student][:email])
+    @student = Student.find_by(email: params[:email])
     if @student && @student.update_attributes(password: params[:student][:password])
       redirect_to home_path
     else
