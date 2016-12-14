@@ -49,6 +49,8 @@ Rails.application.routes.draw do
       get :edit
       put :update_cohort_setting
       put :active_first_round
+      # put :active_second_round
+      put :archive_cohort
      end
   end
 end

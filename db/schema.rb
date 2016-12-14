@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213173707) do
+ActiveRecord::Schema.define(version: 20161214041652) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "name",       null: false
@@ -41,13 +41,14 @@ ActiveRecord::Schema.define(version: 20161213173707) do
     t.integer  "cohort_id"
     t.integer  "pitches_per_student"
     t.integer  "number_in_second_round"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.boolean  "active"
     t.integer  "number_of_teams"
     t.integer  "student_vote_first_round"
     t.boolean  "active_first_round",       default: false
     t.boolean  "active_second_round",      default: false
+    t.         "archived",                 default: "false"
     t.index ["cohort_id"], name: "index_settings_on_cohort_id"
   end
 

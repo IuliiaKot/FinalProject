@@ -64,6 +64,13 @@ class TeachersController < ApplicationController
     cohort.active_first_round = true
     cohort.save
   end
+
+
+  def archive_cohort
+    setting = Setting.find_by(active: true)
+    setting.active = false
+    setting.save
+  end
   # def import
     # StudentAccountMailer.sample_email(User.last, 'h').deliver_now
     # Cohort.import(params[:file])

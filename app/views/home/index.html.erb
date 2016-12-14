@@ -7,7 +7,10 @@
           <div>
             <%= link_to 'Activer Round 1', active_first_round_teachers_url, method: 'put',  class: 'btn btn-primary'%>
           </div>
-
+        <% end %>
+        <br>
+        <% if @cohorts.setting.active %>
+          <%= link_to 'Archive', archive_cohort_teachers_url, method: 'put',  class: 'btn btn-primary'%>
         <% end %>
       </ul>
     <% else %>

@@ -1,44 +1,55 @@
 <div class="container">
-<% if current_user.active_first_round? %>
-  <div class="message-warning">
+  <% if current_user.cohort.setting%>
+    <% if current_user.cohort.setting.active %>
+      <% if current_user.active_first_round? %>
+        <div class="message-warning">
 
-  </div>
-    <div class="row">
-      <% if @errors[:notice] %>
-        <h5 class='text-center'><%= @errors[:notice].last %></h5>
-      <% end %>
-      <% @pitches.each do |pitch| %>
-        <div class='col-md-6'>
-          <div class="card">
-            <div class="card-header" value='<%= pitch.id%>'>
-              <%= pitch.title %>
-              <select class="rank-project custom-select" name="ranks" id='ranks'>
-                <option value=""></option>
-                <% @pitches.count.times do |idx|%>
-                  <% if current_user.find_rank_if_exist(pitch, idx + 1) %>
-                    <option value="<%=pitch.id%>" selected="selected"><%=  idx+1 %></option>>
-                  <% else %>
-                    <option value="<%=pitch.id%>"><%=  idx+1 %></option>
-                  <% end %>
-                <% end %>
-              </select>
-            </div>
-            <div class="card-block">
-              <blockquote class="card-blockquote">
-                <p><%= truncate(pitch.description, length: 140) %></p>
-              </blockquote>
-            </div>
-          </div>
         </div>
+          <div class="row">
+            <% if @errors[:notice] %>
+              <h5 class='text-center'><%= @errors[:notice].last %></h5>
+            <% end %>
+            <% @pitches.each do |pitch| %>
+              <div class='col-md-6'>
+                <div class="card">
+                  <div class="card-header" value='<%= pitch.id%>'>
+                    <%= pitch.title %>
+                    <select class="rank-project custom-select" name="ranks" id='ranks'>
+                      <option value=""></option>
+                      <% @pitches.count.times do |idx|%>
+                        <% if current_user.find_rank_if_exist(pitch, idx + 1) %>
+                          <option value="<%=pitch.id%>" selected="selected"><%=  idx+1 %></option>>
+                        <% else %>
+                          <option value="<%=pitch.id%>"><%=  idx+1 %></option>
+                        <% end %>
+                      <% end %>
+                    </select>
+                  </div>
+                  <div class="card-block">
+                    <blockquote class="card-blockquote">
+                      <p><%= truncate(pitch.description, length: 140) %></p>
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
 
+            <% end %>
+          </div>
+          <% else %>
+            <div class="">
+              <% if @errors[:notice] %>
+                <h5 class='text-center'><%= @errors[:notice].last %></h5>
+              <% end %>
+            </div>
+          <% end %>
+      <% else %>
+        <div class="">
+          <h5 class='text-center'>Pitch day is already over.</h5>
+        </div>
       <% end %>
-    </div>
-    <% else %>
-      <div class="">
-        <p>
-        The first round not opened yet, please wait for teacher action.
-        </p>
-      </div>
+      <% else %>
+          <div class="">
+            <h5>Wair for teacher action.</h5>
+          </div>
     <% end %>
-
 </div>

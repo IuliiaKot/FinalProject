@@ -1,51 +1,24 @@
 <div class="container">
-  <% if current_user.active_first_round? %>
-    <div class="student-message">
-        <span>You choosed <strong class='current-votes'><%= current_user.votes.count%></strong><strong> from <%= current_user.cohort.setting.student_vote_first_round %> </strong>projects</span>
-    </div>
-    <div class="message-warning">
-
-    </div>
-
-
-    <div class="row" >
-      <% @pitches.each do |pitch| %>
-        <div class='col-md-4 col-xs-12'>
-          <div class="card" id='accordion'>
-            <div class="card-header">
-              <% if current_user.type == 'Student' %>
-                <% if current_user.upvoted?(pitch) %>
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input choose-idea" value="/pitches/<%= pitch.id %>/vote" checked="true">
-                    <span class="custom-control-indicator"></span>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= pitch.id%>"><%= pitch.title %></a>
-                  </label>
-                <% else %>
-                  <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input choose-idea" value="/pitches/<%= pitch.id %>/vote">
-                    <span class="custom-control-indicator"></span>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= pitch.id%>"><%= pitch.title %></a>
-                  </label>
-                <% end %>
-              <% end %>
-              <% if current_user.type == 'Teacher' %>
-                <span class="choose-idea"><%= pitch.votes.count%></span>
-              <% end %>
-            </div>
-            <div id="collapse<%= pitch.id%>" class="panel-collapse collapse"><div class="card-block">
-              <blockquote class="card-blockquote">
-                <p><%= truncate(pitch.description, length: 140) %></p>
-              </blockquote>
-            </div></div>
+  <% if current_user.cohort.setting%>
+      <% if current_user.cohort.setting.active %>
+        <% if current_user.active_first_round? %>
+          <%= render partial: 'display_pitches', locals: {pitches: @pitches}%>
+        <% else %>
+          <div class="">
+            <p>
+            The first round not opened yet, please wait for teacher action.
+            </p>
           </div>
-        </div>
+        <% end %>
+      <%  else %>
+          <div class="">
+            <h5 class='text-center'>Pitch day is already over.</h5>
+          </div>
       <% end %>
-    </div>
-  <% else %>
-    <div class="">
-      <p>
-      The first round not opened yet, please wait for teacher action.
-      </p>
-    </div>
+    <% else %>
+        <div class="">
+          <h5>Wair for teacher action.</h5>
+        </div>
   <% end %>
+
 </div>
