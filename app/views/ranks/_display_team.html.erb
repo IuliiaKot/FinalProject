@@ -1,5 +1,6 @@
 <div class="container">
-    <% Cohort.last.setting.number_in_second_round.times do |idx| %>
+    <% (Cohort.last.setting.number_in_second_round).times do |idx| %>
+
         <%= form_for @team do |f| %>
           <div class="col-md-6 team" >
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -12,7 +13,8 @@
                 <input type="hidden" name="team[title]" value="<%= teams[idx][:pitch]%>">
               </div>
             <div id="team<%=idx+1%>" name='<%= teams[idx][:pitch] %>'>
-              <% teams[idx][:student].each_with_index do |student, idx|%>
+              <% teams[idx][:student].each_with_index do |student, idxj|%>
+
                       <% if student.author?(teams[idx][:pitch]) %>
                           <ol class='student line-pitch breadcrumb' name='<%= student.pitches.where(final: true).map {|pitch| pitch.title}%>'>
                       <% else %>

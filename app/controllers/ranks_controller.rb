@@ -15,7 +15,6 @@ class RanksController < ApplicationController
     setting = Setting.where(active: true)
     @team = Team.new()
     @teams = split_students_by_teams
-    # debugger
     @students = Cohort.last.students
     if setting.empty?
       @notice = "There is not active cohort right now. Probably you need to create a new one."
