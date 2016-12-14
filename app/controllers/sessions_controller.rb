@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     #
-    @student = Student.find_by(email: params[:email])
+    @student = Student.find_by(email: params[:student][:email])
     if @student && @student.authenticate(params[:student][:password])
       session[:user_id] = @student.id
       redirect_to pitches_path
