@@ -14,7 +14,7 @@ class Student < User
   end
 
   def self.find_student_for_team(pitch_id, rank)
-    all.joins(ranks: :pitch).merge(Pitch.where(id:pitch_id)).merge(Rank.where(rank: 1)).group("ranks.id")
+    all.joins(ranks: :pitch).merge(Pitch.where(id:pitch_id)).merge(Rank.where(rank: 1))
   end
 
   def author?(pitch)
