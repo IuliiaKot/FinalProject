@@ -70,6 +70,7 @@ class TeachersController < ApplicationController
     setting = Setting.find_by(active: true)
     setting.active = false
     setting.save
+    redirect_to '/home'
   end
   # def import
     # StudentAccountMailer.sample_email(User.last, 'h').deliver_now
