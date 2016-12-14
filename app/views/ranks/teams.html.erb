@@ -1,4 +1,7 @@
 <div class="container">
+  <% if @warning %>
+    <h5><%= @warning %></h5>
+  <% else %>
   <span>Final numbers of teams: <strong><%= Cohort.last.setting.number_of_teams%></strong></span>
 
   <div class="row">
@@ -11,4 +14,5 @@
         <span>Students still voting. </span>
       <% end %>
     <% end %>
+  <% end %>
 </div>
