@@ -1,17 +1,18 @@
 <div class="container">
-    <div class="row">
-        <% @teams.each do |team| %>
-          <div class="col-md-4">
+  <div class="row">
+    <% @teams.each do |team| %>
+      <div class="col-md-6">
+        <div class="list-group">
+          <a href="#" class="list-group-item active">
             <h5><%= Pitch.find(team.pitch_id).title%></h5>
-            <div class="">
-              <ul>
-                <li><strong><%= Student.find(team.lead_id).full_name%></strong></li>
-                <% Team.where(pitch_id: team.pitch_id).each  do |team_student |%>
-                  <li><%= Student.find(team_student.student_id).full_name%></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        <% end %>
-    </div>
+          </a>
+          <strong><a class="list-group-item list-group-item-action list-group-item-success"><%= Student.find(team.lead_id).full_name%></a></strong>
+          <% Team.where(pitch_id: team.pitch_id).each  do |team_student |%>
+            <a class="list-group-item list-group-item-action"><%= Student.find(team_student.student_id).full_name%></a>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 </div>
