@@ -12,18 +12,22 @@ class RanksController < ApplicationController
   end
 
   def teams
-    if Setting.last
-      setting = Setting.where(active: true)
-      @team = Team.new()
-      @teams = split_students_by_teams
-      @students = Cohort.last.students
-      if setting.empty?
-        @notice = "There is not active cohort right now. Probably you need to create a new one."
+    if Team.count == 0
+      if Setting.last
+        setting = Setting.where(active: true)
+        @team = Team.new()
+        @teams = split_students_by_teams
+        @students = Cohort.last.students
+        if setting.empty?
+          @notice = "There is not active cohort right now. Probably you need to create a new one."
+        else
+          @pitches = setting.last.cohort.pitches.in_second_round
+        end
       else
-        @pitches = setting.last.cohort.pitches.in_second_round
+        @warning = "You need to create a new cohort."
       end
     else
-      @warning = "You need to create a new cohort."
+      redirect_to '/dashboard'
     end
   end
 
