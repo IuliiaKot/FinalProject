@@ -47,7 +47,7 @@ class TeamsController < ApplicationController
     end
   end
 
-  def has_teams?(teams, team)
+  def has_team?(teams, team)
     teams.any? {|elm| elm.pitch_id == team.pitch_id}
   end
 
