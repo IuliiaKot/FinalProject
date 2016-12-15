@@ -26,7 +26,20 @@ class TeamsController < ApplicationController
   def dashboard
     # debugger
     if Team.count > 0
-      @teams = Team.select("teams.id, teams.lead_id, teams.student_id, teams.pitch_id").group(:lead_id)
+      @teams = Team.group(['lead_id','teams.id'])
+      # debugger
+      res = []
+      @teams.each_with_index do |team,idx|
+        if idx == 0
+          res << team
+        elsif team.pitch_id == @teams[idx-1].pitch_id
+          next
+        else
+          res << team
+        end
+      end
+      @teams = res
+      # @teams = Team.order(:id).group(:lead_id)
     else
       @teams = []
     end
