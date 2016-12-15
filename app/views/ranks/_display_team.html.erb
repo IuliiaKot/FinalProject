@@ -20,7 +20,7 @@
                       <% else %>
                           <ol class='student breadcrumb'  id="no-drop" class="draggable drag-drop" name='<%= student.pitches.where(final: true).map {|pitch| pitch.title}.join(' ')%>'>
                       <% end %>
-                      <input type="hidden" name='[team]student[<%=idxj%>][student_id]' value="<%= student.id%>">
+                      <input type="hidden" name='[team]student[<%=student.id%>][student_id]' value="<%= student.id%>">
                       <li class='breadcrumb-item student-name'><%=student.first_name%></li>
 
                       <% student.ranks.order('rank ASC').each do |rank|%>
