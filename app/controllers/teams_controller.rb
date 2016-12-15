@@ -1,15 +1,19 @@
 class TeamsController < ApplicationController
 
   def create
-    pitch = Pitch.find_by(title: params[:team][:title])
-    lead = pitch.student
-    students = find_students_for_project - [lead]
-    # debugger
-    if pitch and !students.empty?
-      students.each do |student|
-        # debugger
-        Team.create(pitch_id: pitch.id, lead_id: lead.id, student_id: student.id)
+    if Team.count == 0
+      pitch = Pitch.find_by(title: params[:team][:title])
+      lead = pitch.student
+      students = find_students_for_project - [lead]
+      # debugger
+      if pitch and !students.empty?
+        students.each do |student|
+          # debugger
+          Team.create(pitch_id: pitch.id, lead_id: lead.id, student_id: student.id)
+        end
       end
+    else
+      redirect_to '/dashboard'
     end
   end
 

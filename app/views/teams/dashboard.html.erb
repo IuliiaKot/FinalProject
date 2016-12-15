@@ -2,7 +2,7 @@
     <div class="row">
         <% @teams.each do |team| %>
           <div class="col-md-4">
-            <span><%= Pitch.find(team.pitch_id).title%></span>
+            <h5><%= Pitch.find(team.pitch_id).title%></h5>
             <div class="">
               <ul>
                 <li><strong><%= Student.find(team.lead_id).full_name%></strong></li>
