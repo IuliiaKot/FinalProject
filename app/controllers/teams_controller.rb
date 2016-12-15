@@ -34,6 +34,8 @@ class TeamsController < ApplicationController
           res << team
         elsif team.pitch_id == @teams[idx-1].pitch_id
           next
+        elsif has_team?(res, team)
+          next
         else
           res << team
         end
@@ -43,6 +45,10 @@ class TeamsController < ApplicationController
     else
       @teams = []
     end
+  end
+
+  def has_teams?(teams, team)
+    teams.any? {|elm| elm.pitch_id == team.pitch_id}
   end
 
   private
