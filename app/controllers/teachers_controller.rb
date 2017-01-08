@@ -33,9 +33,10 @@ class TeachersController < ApplicationController
 
 
   def active_first_round
-    cohort = Cohort.find_by(active: true).setting
-    cohort.active_first_round = true
-    cohort.save
+    # cohort = Cohort.find_by(active: true).setting
+    setting = Setting.find_by(active: true)
+    setting.active_first_round = true
+    setting.save
   end
 
 

@@ -1,7 +1,7 @@
 require 'csv'
 class Cohort < ApplicationRecord
   has_many :students, dependent: :destroy
-  has_many :pitches, through: :students
+  has_many :pitches, through: :students, dependent: :destroy
   has_one :setting, dependent: :destroy
 
   def self.import(file)
