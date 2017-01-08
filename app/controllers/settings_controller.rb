@@ -9,7 +9,7 @@ class SettingsController < ApplicationController
   def create
     @setting = Cohort.find_by(id: params[:cohort_id]).build_setting(setting_params)
     if @setting.save
-      redirect_to home_url, notice: "S"
+      redirect_to home_url, notice: "Cohort was successfully created."
     else
       @errors = @setting.errors.full_messages
       render 'new'
