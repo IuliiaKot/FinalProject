@@ -2,7 +2,7 @@
     <h4>Update</h4>
       <div class="form-group row">
 
-        <%= form_tag update_cohort_setting_teachers_path, method: "put" do %>
+        <%= form_tag [@cohort, @setting], method: "put" do %>
             <input type="hidden" name="setting[cohort_id]" value="<%= @cohort.id%>">
           <div class="form-group">
               <label for="pitches_per_student">Number of pithes per student</label>

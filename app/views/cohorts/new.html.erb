@@ -2,7 +2,7 @@
   <h4>Create a new cohort</h4>
     <div class="form-group row">
       <div class="col-md-6 ">
-        <%= form_tag create_cohort_teachers_path, multipart: true do %>
+        <%= form_tag @cohort, multipart: true do %>
           <%= file_field_tag :file %>
           <%= submit_tag "Create", class: "btn btn-primary" %>
         <% end %>

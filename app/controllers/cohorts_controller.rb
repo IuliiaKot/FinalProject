@@ -8,6 +8,18 @@ class CohortsController < ApplicationController
   def show
   end
 
+  def new
+    @cohort = Cohort.new
+  end
+
+  def create
+    Cohort.import(params[:file])
+    cohort = Cohort.last
+    # redirect_to teachers_settings_path
+    # redirect_to show_cohort_settings_teachers_path
+    redirect_to new_cohort_setting_url(cohort)
+  end
+
   private
 
     def find_cohort

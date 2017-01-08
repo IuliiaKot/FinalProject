@@ -6,9 +6,8 @@ class HomeController < ApplicationController
       @pitches = current_user.cohort.pitches
       render 'cohort_projects'
     else
-      if Cohort.last
-
-        Cohort.last.setting.active ? @cohorts = Cohort.last  : @cohorts = nil
+      if Cohort.last && Cohort.last.setting
+        Cohort.last.setting.active ? @cohorts = Setting.find_by(active: true).cohort  : @cohorts = nil
       else
         @cohorts = nil
       end

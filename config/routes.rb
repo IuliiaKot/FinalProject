@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get '/teams' => 'ranks#teams'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :cohorts
+  resources :cohorts do
+    resources :settings
+  end
   resources :pitches do
     post '/setrank' => 'ranks#setrank'
     post '/rank' => 'pitches#rank'

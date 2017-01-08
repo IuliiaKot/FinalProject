@@ -2,7 +2,7 @@
   <h4>Create a new cohort</h4>
     <div class="form-group row">
 
-      <%= form_tag set_cohort_settings_teachers_path do %>
+      <%= form_for [@cohort, @setting] do %>
         <div class="form-group">
             <label for="pitches_per_student">Number of pithes per student</label>
             <input class= "form-control" type="integer" name="setting[pitches_per_student]" value="" id="pitches_per_student" required="true">

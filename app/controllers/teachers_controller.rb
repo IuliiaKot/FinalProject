@@ -16,34 +16,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  def settings
-    @cohort = Cohort.new
-  end
-
-  def create_cohort
-    Cohort.import(params[:file])
-    # redirect_to teachers_settings_path
-    redirect_to show_cohort_settings_teachers_path
-  end
-
-  def show_cohort_settings
-  end
-
-  def set_cohort_settings
-    @setting = Setting.new(setting_params)
-    if @setting.save
-      redirect_to home_url, notice: "S"
-    else
-      @errors = @setting.errors.full_messages
-      render 'show_cohort_settings'
-    end
-  end
-
-
-  def edit
-    @cohort = Cohort.last
-    @setting = @cohort.setting
-  end
 
   def edit_profile
     @teacher = Teacher.find_by(id: params[:id])
@@ -59,21 +31,9 @@ class TeachersController < ApplicationController
     end
   end
 
-  def update_cohort_setting
-    #
-    cohort = Cohort.find(params[:setting][:cohort_id])
-    if cohort.setting
-      cohort.setting.update_attributes(setting_params)
-      redirect_to home_url
-    else
-      @errors = ['error']
-      render 'edit'
-    end
-  end
-
 
   def active_first_round
-    cohort = Cohort.last.setting
+    cohort = Cohort.find_by(active: true).setting
     cohort.active_first_round = true
     cohort.save
   end
