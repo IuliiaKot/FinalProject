@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_action :check_if_active, only: [:dashboard]
 
   def create
     pitch = Pitch.find_by(title: params[:team][:title])
@@ -56,4 +57,5 @@ class TeamsController < ApplicationController
       # debugger
       params.requite(:teams).permit!
     end
+
 end
