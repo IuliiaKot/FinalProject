@@ -41,14 +41,14 @@ ActiveRecord::Schema.define(version: 20170108191944) do
     t.integer  "cohort_id"
     t.integer  "pitches_per_student"
     t.integer  "number_in_second_round"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.boolean  "active"
     t.integer  "number_of_teams"
     t.integer  "student_vote_first_round"
     t.boolean  "active_first_round",       default: false
     t.boolean  "active_second_round",      default: false
-    t.         "archived",                 default: "false"
+    t.boolean  "archived",                 default: false
     t.index ["cohort_id"], name: "index_settings_on_cohort_id"
   end
 
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20170108191944) do
     t.integer  "student_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.         "cohort"
     t.integer  "cohort_id"
   end
 

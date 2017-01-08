@@ -4,6 +4,8 @@ class Cohort < ApplicationRecord
   has_many :pitches, through: :students, dependent: :destroy
   has_one :setting, dependent: :destroy
 
+  has_many :ranks, through: :pitches
+
 
   has_many :teams
 

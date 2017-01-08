@@ -1,21 +1,37 @@
 class TeamsController < ApplicationController
-  before_action :check_if_active, only: [:dashboard]
+  before_action :check_if_active, only: [:dashboard, :index]
+
+  def index
+    setting = Setting.find_by(active: true)
+    if setting && setting.cohort.teams.count == 0
+      if setting
+        cohort = setting.cohort
+        @team = cohort.teams.new()
+        @teams = split_students_by_teams
+        @students = cohort.students
+        @pitches = cohort.pitches.in_second_round
+      else
+        @warning = "You need to create a new cohort."
+        @notice = "There is not active cohort right now. Probably you need to create a new one."
+      end
+    else
+      redirect_to '/teams/dashboard'
+    end
+  end
 
   def create
+    setting = Setting.find_by(active: true)
     pitch = Pitch.find_by(title: params[:team][:title])
     lead = pitch.student
     students = find_students_for_project - [lead]
-    # debugger
     if pitch and !students.empty?
       students.each do |student|
-        # debugger
-        Team.create(pitch_id: pitch.id, lead_id: lead.id, student_id: student.id)
+        setting.cohort.teams.create(pitch_id: pitch.id, lead_id: lead.id, student_id: student.id)
       end
     end
   end
 
   def find_students_for_project
-    # debugger
     res = []
     params[:team][:student].each do |k,v|
       res << Student.find_by(id: v.values.last)
@@ -25,9 +41,9 @@ class TeamsController < ApplicationController
 
 
   def dashboard
-    # debugger
-    if Team.count > 0
-      @teams = Team.group(['lead_id','teams.id'])
+    setting = Setting.find_by(active: true)
+    if setting.cohort.teams.count > 0
+      @teams = setting.cohort.teams.group(['lead_id','teams.id'])
       # debugger
       res = []
       @teams.each_with_index do |team,idx|
@@ -56,6 +72,17 @@ class TeamsController < ApplicationController
     def team_params
       # debugger
       params.requite(:teams).permit!
+    end
+
+    def split_students_by_teams
+      students = Setting.find_by(active: true).cohort.students
+      final_pitches = Setting.find_by(active: true).cohort.pitches.in_second_round
+      # Student.all.joins(ranks: :pitch).merge(Pitch.where(id:pitch[0])).merge(Rank.where(rank: 1))
+      return [] if final_pitches.empty?
+      return [] if Setting.find_by(active: true).cohort.ranks.length == 0
+      final_pitches.map do |pitch|
+        {student: Student.find_student_for_team(pitch.id, pitch.ranks.group('ranks.id').order('count(rank) DESC')[0].rank), pitch: pitch.title}
+      end.sort_by {|team| -team[:student].count}
     end
 
 end
