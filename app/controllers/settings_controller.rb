@@ -7,7 +7,6 @@ class SettingsController < ApplicationController
 
 
   def create
-
     @setting = Cohort.find_by(id: params[:cohort_id]).build_setting(setting_params)
     if @setting.save
       redirect_to home_url, notice: "S"
@@ -24,6 +23,7 @@ class SettingsController < ApplicationController
   end
 
   def update
+
     cohort = Cohort.find(params[:setting][:cohort_id])
     if cohort.setting
       cohort.setting.update_attributes(setting_params)

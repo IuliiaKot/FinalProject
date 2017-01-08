@@ -2,7 +2,7 @@
   <div class="row">
     <% if @cohorts %>
       <ul>
-        <li><a href="/home/cohorts/<%= @cohorts.id%>"><%= @cohorts.name%></a> <a href="/cohorts/<%= @cohorts.id%>/settings/<%=  @cohorts.setting.id%>/edit">Setting</a></li>
+        <li><a href="/home/cohorts/<%= @cohorts.id%>/pitches"><%= @cohorts.name%></a> <a href="/cohorts/<%= @cohorts.id%>/settings/<%=  @cohorts.setting.id%>/edit">Setting</a></li>
         <% if !@cohorts.setting.active_first_round %>
           <div>
             <%= link_to 'Active Round 1', active_first_round_teachers_url, method: 'put',  class: 'btn btn-primary'%>

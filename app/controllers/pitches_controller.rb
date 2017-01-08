@@ -7,7 +7,7 @@ class PitchesController < ApplicationController
       @pitches = current_user.pitches
 
     else
-      @pitches = Pitch.all
+      @pitches = Setting.find_by(active: true).cohort.pitches
     end
   end
 

@@ -1,4 +1,5 @@
 class CohortsController < ApplicationController
+  before_action :require_user
   before_action :find_cohort, only: [:show, :edit]
 
   def index

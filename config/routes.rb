@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # get 'teachers/create'
   get '/teachers/login' => 'teachers#login'
   post '/teachers' => 'teachers#create'
-  get '/teachers/settings' => 'teachers#settings'
+  # get '/teachers/settings' => 'teachers#settings'
   # post '/teachers/create_cohort' => 'teachers#create_cohort'
 
 
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   root 'static_page#index'
   get '/home' => 'home#index'
-  get '/home/cohorts/:id' => 'home#cohort_projects'
+  get '/home/cohorts/:id/pitches' => 'home#projects'
   post '/teams' => 'teams#create'
 
   # get '/students/:id/profile' => 'students#profile'
@@ -52,10 +52,10 @@ Rails.application.routes.draw do
   resources :teachers , except: [:index, :new, :create] do
     collection do
       post :create_cohort
-      get  :show_cohort_settings
-      post :set_cohort_settings
+      # get  :show_cohort_settings
+      # post :set_cohort_settings
       get  :edit
-      put :update_cohort_setting
+      # put :update_cohort_setting
       put :active_first_round
       # put :active_second_round
       put :archive_cohort
