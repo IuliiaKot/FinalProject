@@ -4,6 +4,8 @@ class Student < User
   has_many :votes
   has_many :ranks
 
+  has_one :team
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end

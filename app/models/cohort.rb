@@ -4,6 +4,9 @@ class Cohort < ApplicationRecord
   has_many :pitches, through: :students, dependent: :destroy
   has_one :setting, dependent: :destroy
 
+
+  has_many :teams
+
   def self.import(file)
     Cohort.create(name: file.original_filename[0...-4])
     CSV.foreach(file.path, headers: true, header_converters: :symbol) do |row|

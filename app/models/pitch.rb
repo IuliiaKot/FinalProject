@@ -3,6 +3,8 @@ class Pitch < ApplicationRecord
   has_many :votes
   has_many :ranks
 
+  has_one :team
+
 
   scope :in_second_round, -> {where final: true }
 
