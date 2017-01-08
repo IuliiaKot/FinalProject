@@ -27,7 +27,7 @@ class RanksController < ApplicationController
         @warning = "You need to create a new cohort."
       end
     else
-      redirect_to '/dashboard'
+      redirect_to '/teams/dashboard'
     end
   end
 
