@@ -1,5 +1,5 @@
 module TeamsHelper
   def check_if_active
-    redirect_to '/home' unless Setting.where(active: true).empty?
+    redirect_to '/home' if Setting.where(active: true).empty?
   end
 end
