@@ -70,7 +70,6 @@ class TeamsController < ApplicationController
 
   private
     def team_params
-      # debugger
       params.requite(:teams).permit!
     end
 
