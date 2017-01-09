@@ -1,5 +1,6 @@
 <div class="container">
   <%= render partial: '/partial/errors', layout: false, locals: {errors: @errors}%>
+  <h5>Update password</h5>
   <%= form_for  @student do |f| %>
 
     <%= hidden_field_tag :email, @student.email,  class: 'form-control'%>
@@ -9,7 +10,7 @@
 
     <%= f.submit "Update", class: "btn btn-primary" %>
   <% end %>
-  <br><a href="/home" class="btn btn-primary">Cancel</a>
+</br><a href="/home" class="btn btn-primary">Cancel</a>
 
 
 </div>

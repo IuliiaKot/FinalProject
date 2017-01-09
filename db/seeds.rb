@@ -10,8 +10,8 @@
 # # #
 # # Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia", last_name: "Kotlenko")
 # #
-# Cohort.create(name: 'nyc-sealions-2017')
-# Setting.create(cohort_id: Cohort.last.id, pitches_per_student: 3, number_in_second_round: 4,active: true, number_of_teams: 2,student_vote_first_round: 5, active_first_round: false)
+# Cohort.create(name: 'nyc-bobolinks-2016')
+# Setting.create(cohort_id: Cohort.last.id, pitches_per_student: 3, number_in_second_round: 4,active: true, number_of_teams: 3,student_vote_first_round: 5, active_first_round: false)
 # students = [
 #   {first_name: "Pan", last_name: "Wan", email: 'pan@gmail.com', password: '123456'},
 #   {first_name: "Niel", last_name: "Geyman", email: 'niel@gmail.com', password: '123456'},
@@ -36,18 +36,18 @@
 #       student.pitches.create!(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.paragraph(5))
 #     end
 #   end
-#
+# #
 
 
   #
-  # Student.all.each do |student|
-  #   ids = (1..11).to_a.shuffle
-  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  # end
+  Student.all.each do |student|
+    ids = (1..11).to_a.shuffle
+    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+  end
 
 
 #
