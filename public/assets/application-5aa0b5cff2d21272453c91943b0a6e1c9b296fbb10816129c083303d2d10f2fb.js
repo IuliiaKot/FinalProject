@@ -15656,12 +15656,38 @@ $(document).ready(function() {
           `<div class='alert alert-success alert-dismissible fade' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.message}</div>`);
         }
 
-        $('.alert').delay(200).addClass('in').fadeOut(3500);
+
         if (response.delete) {
           $('.current-votes').html(response.votes);
+          $('.message-warning').prepend(
+          `<div class='alert alert-danger alert-dismissible fade' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>${response.delete}</div>`);
           $(element).prop('checked', false);
         }
+
+        $('.alert').delay(200).addClass('in').fadeOut(3500);
       });
+  });
+
+
+  $('.check-votes').on('click', function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: $(e.target).parent().attr('action'),
+      method: 'post'
+    }).done(function(response) {
+      $modal = $('.modal');
+      $modalBody = $('.modal .modal-body');
+      $modalFooter = $('.modal .modal-footer');
+      if (response['succesfull']) {
+        $modalBody.html(`${response['message']}`);
+        $modalFooter.html("<a href='/ranking' class='btn btn-secondary'>Next</a>");
+        $modal.modal();
+      } else {
+        $modalBody.html(`${response['message']}`);
+        $modalFooter.html("<a href='#' class='btn btn-secondary' data-dismiss='modal'>Close</a>");
+        $modal.modal();
+      }
+    });
   });
 });
 $(document).ready(function() {
@@ -15693,6 +15719,14 @@ $(document).ready(function() {
       });
   });
 });
+(function() {
+
+
+}).call(this);
+(function() {
+
+
+}).call(this);
 (function() {
 
 
