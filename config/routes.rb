@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     post '/vote' => 'votes#upvote'
   end
 
+  post '/votes' => 'votes#create'
+
   resources :users, only: [:new, :create]
   resources :students, only: [:new, :create, :show, :edit, :update]
     # resources :profile, only: [:show, :edit, :update]

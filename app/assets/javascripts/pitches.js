@@ -33,4 +33,26 @@ $(document).ready(function() {
         }
       });
   });
+
+
+  $('.check-votes').on('click', function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: $(e.target).parent().attr('action'),
+      method: 'post'
+    }).done(function(response) {
+      $modal = $('.modal');
+      $modalBody = $('.modal .modal-body');
+      $modalFooter = $('.modal .modal-footer');
+      if (response['succesfull']) {
+        $modalBody.html(`${response['message']}`);
+        $modalFooter.html("<a href='/ranking' class='btn btn-secondary'>Next</a>");
+        $modal.modal();
+      } else {
+        $modalBody.html(`${response['message']}`);
+        $modalFooter.html("<a href='#' class='btn btn-secondary' data-dismiss='modal'>Close</a>");
+        $modal.modal();
+      }
+    });
+  });
 });

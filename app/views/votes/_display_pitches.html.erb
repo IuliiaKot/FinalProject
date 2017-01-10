@@ -4,7 +4,7 @@
 <div class="message-warning">
 
 </div>
-
+<%= render "layouts/modal" %>
 
 <div class="row" >
   <% pitches.each do |pitch| %>
@@ -37,5 +37,10 @@
         </div></div>
       </div>
     </div>
+  <% end %>
+
+
+  <%= form_for @vote do %>
+    <input type="submit" name="" value="Submit" class="btn btn-primary btn-lg btn-block check-votes">
   <% end %>
 </div>
