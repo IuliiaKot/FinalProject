@@ -33,9 +33,11 @@
                 </div>
               </div>
             <% end %>
-            <div class="clear-result">
-              <%= link_to 'Clear results', students_rank_clear_path, method: 'delete',  class: 'btn btn-primary'%>
-            </div>  
+            <% if !@pitches.empty? %>
+              <div class="clear-result">
+                <%= link_to 'Clear results', students_rank_clear_path, method: 'delete',  class: 'btn btn-primary'%>
+              </div>
+            <% end %>
           </div>
           <% else %>
             <div class="">
