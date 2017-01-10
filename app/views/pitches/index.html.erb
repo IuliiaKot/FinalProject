@@ -24,7 +24,7 @@
 
 
       <% if current_user.type == 'Student' %>
-        <% if current_user.cohort.setting.active %>
+        <% if current_user.cohort.setting.active && !current_user.cohort.setting.active_first_round%>
           <% if @pitches.count < current_user.cohort.setting.pitches_per_student%>
             <a href="/pitches/new" class='link_to_new_pitch'>Add a new Pitch</a>
           <% end %>
