@@ -2,7 +2,13 @@
   <% if current_user.cohort.setting%>
       <% if current_user.cohort.setting.active %>
         <% if current_user.active_first_round? %>
+
           <%= render partial: 'display_pitches', locals: {pitches: @pitches}%>
+          <% if  Setting.find_by(active: true).cohort.pitches.where(final: true).length != 0%>
+          <script>
+            $('.student-first-round *').prop('disabled',true);
+          </script>
+          <% end %>
         <% else %>
           <div class="">
             <p>

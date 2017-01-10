@@ -40,14 +40,14 @@
 
 
   #
-  Student.all.each do |student|
-    ids = (1..11).to_a.shuffle
-    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  end
+  # Student.all.each do |student|
+  #   ids = (1..11).to_a.shuffle
+  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+  # end
 
 
 #
@@ -55,13 +55,13 @@
 
 # ranking
 #
-# final_ideas = Cohort.last.pitches.in_second_round
-# Student.all.each do |student|
-#   rank = (1..final_ideas.length).to_a.shuffle
-#   final_ideas.each do |pitch|
-#     pitch.ranks.create(rank: rank.shift, student_id: student.id)
-#   end
-# end
+final_ideas = Cohort.last.pitches.in_second_round
+Student.all.each do |student|
+  rank = (1..final_ideas.length).to_a.shuffle
+  final_ideas.each do |pitch|
+    pitch.ranks.create(rank: rank.shift, student_id: student.id)
+  end
+end
 
 
 
@@ -112,10 +112,10 @@
 
 # ranking
 #
-final_ideas = Cohort.last.pitches.in_second_round
-Cohort.last.students.each do |student|
-  rank = (1..final_ideas.length).to_a.shuffle
-  final_ideas.each do |pitch|
-    pitch.ranks.create(rank: rank.shift, student_id: student.id)
-  end
-end
+# final_ideas = Cohort.last.pitches.in_second_round
+# Cohort.last.students.each do |student|
+#   rank = (1..final_ideas.length).to_a.shuffle
+#   final_ideas.each do |pitch|
+#     pitch.ranks.create(rank: rank.shift, student_id: student.id)
+#   end
+# end
