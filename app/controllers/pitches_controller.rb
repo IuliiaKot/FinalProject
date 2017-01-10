@@ -41,6 +41,7 @@ class PitchesController < ApplicationController
 
   def destroy
     @pitch.delete
+    flash[:notice] = 'Pitch was successfully deleted'
     redirect_to pitches_path
   end
 

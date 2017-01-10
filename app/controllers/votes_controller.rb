@@ -31,7 +31,6 @@ class VotesController < ApplicationController
     # debugger
     number_of_pitches = current_user.cohort.setting.student_vote_first_round
     if current_user.votes.count <= number_of_pitches - 1
-      # redirect_to firstround_path, :notice => 'hello'
       render :json =>  {message: "In the first round you need to choose #{number_of_pitches} pitches.", succesfull: false}
     else
       render :json =>  {message: "Your choices were successfully saved. Thank you.", succesfull: true}
