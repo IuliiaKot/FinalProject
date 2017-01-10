@@ -14,7 +14,7 @@
           <h4 class="card-header"><%= pitch.title %></h4>
           <div class="card-block">
             <p class="card-text"><%= pitch.description %></p>
-            <% if current_user.cohort.setting.active %>
+            <% if current_user.cohort.setting.active  && !current_user.cohort.setting.active_first_round%>
               <%= link_to 'Edit', edit_pitch_path(pitch), class: 'btn btn-primary'%>
               <%= link_to 'Delete', pitch_path(pitch), method: 'delete', class: 'btn btn-primary'%>
             <% end %>
