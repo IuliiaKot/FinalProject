@@ -29,6 +29,8 @@ class TeamsController < ApplicationController
         setting.cohort.teams.create(pitch_id: pitch.id, lead_id: lead.id, student_id: student.id)
       end
     end
+    # redirect_to '/dashboard' if setting.cohort.teams == setting.cohort.number_of_teams
+
   end
 
   def find_students_for_project

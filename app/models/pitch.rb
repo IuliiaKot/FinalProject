@@ -1,9 +1,9 @@
 class Pitch < ApplicationRecord
   belongs_to :student
-  has_many :votes
-  has_many :ranks
+  has_many :votes, dependent: :destroy
+  has_many :ranks, dependent: :destroy
 
-  has_one :team
+  has_one :team, dependent: :destroy
 
 
   scope :in_second_round, -> {where final: true }

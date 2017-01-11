@@ -1,8 +1,8 @@
 class StudentAccountMailer < ApplicationMailer
-  default from: 'iuliia.kotlenko@hotmail.com'
+  default from: 'finalprojectdbc@gmail.com'
 
   def sample_email(user, password)
-    #  
+    #
     @user = user
     @password = password
     mail(to: user.email, subject: "Account info")
