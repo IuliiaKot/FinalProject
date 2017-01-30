@@ -37,6 +37,7 @@ class TeachersController < ApplicationController
     setting = Setting.find_by(active: true)
     setting.active_first_round = true
     setting.save
+    
   end
 
 

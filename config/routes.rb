@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/votingresult' => 'pitches#votingresult'
   get '/ranking' => 'pitches#ranking'
+  post '/ranks' => 'ranks#create'
   get '/firstround' => 'votes#firstround'
   get '/teams' => 'teams#index'
 

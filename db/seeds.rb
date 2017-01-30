@@ -5,11 +5,11 @@
 # Vote.delete_all
 # Setting.delete_all
 # Team.delete_all
-# # # Teacher.delete_all
-# #
+# # # # Teacher.delete_all
 # # #
-# # Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia", last_name: "Kotlenko")
-# #
+# # # #
+# # # Teacher.create(email: 'julia@gmail.com', password: '123456', first_name: "Iuliia", last_name: "Kotlenko")
+# # #
 # Cohort.create(name: 'nyc-bobolinks-2016')
 # Setting.create(cohort_id: Cohort.last.id, pitches_per_student: 3, number_in_second_round: 4,active: true, number_of_teams: 3,student_vote_first_round: 5, active_first_round: false)
 # students = [
@@ -29,25 +29,25 @@
 #   students.each do |student|
 #     Cohort.last.students.create(student)
 #   end
-# # #
-#   student_pitches = Cohort.last.students
-#   student_pitches.each do |student|
-#     Cohort.last.setting.pitches_per_student.times do
-#       student.pitches.create!(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.paragraph(5))
-#     end
-#   end
-# #
+#
+  # student_pitches = Cohort.last.students
+  # student_pitches.each do |student|
+  #   Cohort.last.setting.pitches_per_student.times do
+  #     student.pitches.create!(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.paragraph(5))
+  #   end
+  # end
+#
 
 
   #
-  # Student.all.each do |student|
-  #   ids = (1..11).to_a.shuffle
-  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  #   Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
-  # end
+  Student.all.each do |student|
+    ids = (1..11).to_a.shuffle
+    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+    Vote.create(pitch_id: Pitch.all[ids.shift].id, count: 1, student_id: student.id)
+  end
 
 
 #

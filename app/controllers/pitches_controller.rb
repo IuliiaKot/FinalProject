@@ -77,6 +77,7 @@ class PitchesController < ApplicationController
 
     @pitches = Cohort.last.pitches.in_second_round
     @errors = {}
+    @rank = Rank.new
     if @pitches.empty?
       @errors[:notice] = ['Wait for teacher action']
     end

@@ -5,6 +5,7 @@
         <div class="message-warning">
 
         </div>
+        <%= render "layouts/modal" %>
           <div class="row">
             <% if @errors[:notice] %>
               <h5 class='text-center'><%= @errors[:notice].last %></h5>
@@ -37,6 +38,9 @@
               <div class="clear-result">
                 <%= link_to 'Clear results', students_rank_clear_path, method: 'delete',  class: 'btn btn-primary'%>
               </div>
+              <%= form_for @rank do %>
+                <input type="submit" name="" value="Submit" class="btn btn-primary btn-lg btn-block check-ranks">
+              <% end %>
             <% end %>
           </div>
           <% else %>

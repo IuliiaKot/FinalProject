@@ -11,6 +11,17 @@ class RanksController < ApplicationController
     end
   end
 
+  def create
+    # debugger
+
+    number_of_pitches_in_second_round = current_user.cohort.setting.number_in_second_round
+    if current_user.ranks.count <= number_of_pitches_in_second_round - 1
+      render :json =>  {message: "In the second round you need to rank all pitches pitches.", succesfull: false}
+    else
+      render :json =>  {message: "Your choices were successfully saved. Thank you.", succesfull: true}
+    end
+  end
+
   # def teams
   #   if Team.count == 0
   #     if Setting.last
