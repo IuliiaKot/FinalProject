@@ -15718,6 +15718,29 @@ $(document).ready(function() {
 
       });
   });
+
+
+  $('.check-ranks').on('click', function(e) {
+    debugger
+    e.preventDefault();
+    $.ajax({
+      url: $(e.target).parent().attr('action'),
+      method: 'post'
+    }).done(function(response) {
+      $modal = $('.modal');
+      $modalBody = $('.modal .modal-body');
+      $modalFooter = $('.modal .modal-footer');
+      if (response['succesfull']) {
+        $modalBody.html(`${response['message']}`);
+        $modalFooter.html("<a href='/home' class='btn btn-secondary'>Next</a>");
+        $modal.modal();
+      } else {
+        $modalBody.html(`${response['message']}`);
+        $modalFooter.html("<a href='#' class='btn btn-secondary' data-dismiss='modal'>Close</a>");
+        $modal.modal();
+      }
+    });
+  });
 });
 (function() {
 
